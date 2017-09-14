@@ -14,14 +14,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Zhisheng的博客</title>
+  <title>【字符串】判断两字符串是否互为旋转词？ | Zhisheng的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zhisheng的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="相关阅读：字符串逆序问题的解决方法题目：
+如果对于一个字符串A，将A的前面任意一部分挪到后边去形成的字符串称为A的旋转词。
+比如A=”12345”,A的旋转词有”12345”,”23451”,”34512”,”45123”和”51234”。
+对于两个字符串A和B，请判断A和B是否互为旋转词。
+给定两个字符串A和B及他们的长度lena，lenb，请返回一个bool值，代表他们是否互为旋转词。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【字符串】判断两字符串是否互为旋转词？">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/【字符串】判断两字符串是否互为旋转词？/index.html">
 <meta property="og:site_name" content="Zhisheng的博客">
+<meta property="og:description" content="相关阅读：字符串逆序问题的解决方法题目：
+如果对于一个字符串A，将A的前面任意一部分挪到后边去形成的字符串称为A的旋转词。
+比如A=”12345”,A的旋转词有”12345”,”23451”,”34512”,”45123”和”51234”。
+对于两个字符串A和B，请判断A和B是否互为旋转词。
+给定两个字符串A和B及他们的长度lena，lenb，请返回一个bool值，代表他们是否互为旋转词。">
+<meta property="og:updated_time" content="2017-06-13T10:40:13.083Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhisheng的博客">
+<meta name="twitter:title" content="【字符串】判断两字符串是否互为旋转词？">
+<meta name="twitter:description" content="相关阅读：字符串逆序问题的解决方法题目：
+如果对于一个字符串A，将A的前面任意一部分挪到后边去形成的字符串称为A的旋转词。
+比如A=”12345”,A的旋转词有”12345”,”23451”,”34512”,”45123”和”51234”。
+对于两个字符串A和B，请判断A和B是否互为旋转词。
+给定两个字符串A和B及他们的长度lena，lenb，请返回一个bool值，代表他们是否互为旋转词。">
   
     <link rel="alternative" href="/atom.xml" title="Zhisheng的博客" type="application/atom+xml">
   
@@ -180,22 +196,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Elasticsearch-install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-【字符串】判断两字符串是否互为旋转词？" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/Elasticsearch-install/">全文搜索引擎 Elasticsearch 集群搭建入门教程</a>
+    <h1 class="article-title" itemprop="name">
+      【字符串】判断两字符串是否互为旋转词？
     </h1>
   
 
         
-        <a href="/2017/09/09/Elasticsearch-install/" class="archive-article-date">
-  	<time datetime="2017-09-09T03:56:42.374Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+        <a href="/2017/03/28/【字符串】判断两字符串是否互为旋转词？/" class="archive-article-date">
+  	<time datetime="2017-03-28T10:49:25.536Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
 </a>
         
       </header>
@@ -203,371 +217,100 @@ var _hmt = _hmt || [];
 
     <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#相关阅读："><span class="toc-number">1.</span> <span class="toc-text">相关阅读：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串逆序问题的解决方法"><span class="toc-number"></span> <span class="toc-text">字符串逆序问题的解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结："><span class="toc-number"></span> <span class="toc-text">总结：</span></a>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
 <!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为 Apache 许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。基百科、Stack Overflow、Github 都采用它。</p>
-<p>本文从零开始，讲解如何使用 Elasticsearch 搭建自己的全文搜索引擎。每一步都有详细的说明，大家跟着做就能学会。<br>
-        
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Elasticsearch-analyzers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/07/Elasticsearch-analyzers/">Elasticsearch 默认分词器和中分分词器之间的比较及使用方法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/07/Elasticsearch-analyzers/" class="archive-article-date">
-  	<time datetime="2017-09-07T01:50:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>介绍：ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为Apache许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。</p>
-<p>Elasticsearch中，内置了很多分词器（analyzers）。下面来进行比较下系统默认分词器和常用的中文分词器之间的区别。<br>
-        
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-recommend-books" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/recommend-books/">那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/26/recommend-books/" class="archive-article-date">
-  	<time datetime="2017-08-26T05:38:47.267Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://ohfk1r827.bkt.clouddn.com/learn-2004897_960_720.png-1" alt=""><br>
-        
-          <a class="article-more-a" href="/2017/08/26/recommend-books/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/26/recommend-books/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Ubuntu-install-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/Ubuntu-install-Nginx/">Ubuntu16.10 安装 Nginx</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/Ubuntu-install-Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-18T05:52:20.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装-Nginx-依赖库"><a href="#安装-Nginx-依赖库" class="headerlink" title="安装 Nginx 依赖库"></a>安装 Nginx 依赖库</h2><h3 id="安装-gcc-g-的依赖库"><a href="#安装-gcc-g-的依赖库" class="headerlink" title="安装 gcc g++ 的依赖库"></a>安装 gcc g++ 的依赖库</h3><p>Ubuntu 平台使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install build-essential</div><div class="line">apt-get install libtool</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-most-success" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/most-success/">马云热血励志演讲《最伟大的成功》</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/11/most-success/" class="archive-article-date">
-  	<time datetime="2017-08-11T13:56:34.713Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当你乐观的时候，总是会有机会的。那么你可能要问了“机会在哪呢？”你可能没有特别想实现的事，没有迫切要成功的欲望，没有勇攀高峰的决心，没有水滴石穿的毅力，也没有一颗所向披靡的强大心脏。那么，让来自马云的这段演讲来告诉你，你有什么。你有年轻的身体，你有奇妙的想法，你有乐观的心态，你有无限的可能性。<br>
-        
-          <a class="article-more-a" href="/2017/08/11/most-success/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">励志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/11/most-success/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Nginx/">Nginx 基本知识快速入门</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-05T12:41:33.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是-Nginx？"><a href="#什么是-Nginx？" class="headerlink" title="什么是 Nginx？"></a>什么是 Nginx？</h2><p>Nginx 是一个高性能的 HTTP 和反向代理服务器，以高稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。</p>
-<h2 id="Nginx-特点"><a href="#Nginx-特点" class="headerlink" title="Nginx 特点"></a>Nginx 特点</h2><ul>
-<li>处理静态文件，索引文件以及自动索引；打开文件描述符缓冲．</li>
-<li>无缓存的反向代理加速，简单的负载均衡和容错．</li>
-<li>FastCGI，简单的负载均衡和容错．</li>
-<li>模块化的结构。包括 gzipping, byte ranges, chunked responses,以及 SSI-filter 等 filter。如果由 FastCGI 或其它代理服务器处理单页中存在的多个 SSI，则这项处理可以并行运行，而不需要相互等待。</li>
-<li>支持 SSL 和 TLSSNI．</li>
+        <h4 id="相关阅读："><a href="#相关阅读：" class="headerlink" title="相关阅读："></a>相关阅读：</h4><h3 id="字符串逆序问题的解决方法"><a href="#字符串逆序问题的解决方法" class="headerlink" title="字符串逆序问题的解决方法"></a><a href="http://blog.csdn.net/tzs_1041218129/article/details/54645569" target="_blank" rel="external">字符串逆序问题的解决方法</a></h3><p>题目：</p>
+<p>如果对于一个字符串A，将A的前面任意一部分挪到后边去形成的字符串称为A的旋转词。</p>
+<p>比如A=”12345”,A的旋转词有”12345”,”23451”,”34512”,”45123”和”51234”。</p>
+<p>对于两个字符串A和B，请判断A和B是否互为旋转词。</p>
+<p>给定两个字符串A和B及他们的长度lena，lenb，请返回一个bool值，代表他们是否互为旋转词。<br><a id="more"></a></p>
+<p>测试样例：</p>
+<blockquote>
+<p>“cdab”,4,”abcd”,4</p>
+<p>返回：true</p>
+</blockquote>
+<p>通过代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">import java.util.*;</div><div class="line"></div><div class="line">public class Rotation</div><div class="line">&#123;</div><div class="line">    public static boolean chkRotation(String A, int lena, String B, int lenb) &#123;</div><div class="line">        // write code here</div><div class="line">        if (lena != lenb)&#123;</div><div class="line">            return false;</div><div class="line">        &#125;else &#123;</div><div class="line">            String str = A + A;</div><div class="line">            return str.contains(B);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>也可以使用 <strong>indexOf</strong>。</p>
+<p>其区别是：</p>
+<blockquote>
+<ul>
+<li>contains 是找指定字符串是否包含一个字符串，返回值的 boolean 类型，即只有 true 和 false<br><br></li>
+<li>indexOf 有多个重载，但无论哪个，都是做一定的匹配，然后把匹配的第一个字符的位置返回，返回的是 int 类型，如果没找到，那么返回 -1</li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/08/05/Nginx/#more">more >></a>
-        
+</blockquote>
+<p>稍微再深究一下的我看了下 <code>contains</code> 的源码，结果发现他调用的是     <code>indexOf</code> 方法。</p>
+<p>源码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">     * Returns true if and only if this string contains the specified</div><div class="line">     * sequence of char values.</div><div class="line">     *</div><div class="line">     * @param s the sequence to search for</div><div class="line">     * @return true if this string contains &#123;@code s&#125;, false otherwise</div><div class="line">     * @since 1.5</div><div class="line">     */</div><div class="line">    public boolean contains(CharSequence s) &#123;</div><div class="line">        return indexOf(s.toString()) &gt; -1;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>意思就是如上面的区别所说的，他只有两个返回值 <code>true</code> 和 <code>false</code>。</p>
+<p>于是我们继续看一下 <code>indexOf</code> 方法的源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">     * Returns the index within this string of the first occurrence of the</div><div class="line">     * specified substring.</div><div class="line">     *</div><div class="line">     * &lt;p&gt;The returned index is the smallest value &lt;i&gt;k&lt;/i&gt; for which:</div><div class="line">     * &lt;blockquote&gt;&lt;pre&gt;</div><div class="line">     * this.startsWith(str, &lt;i&gt;k&lt;/i&gt;)</div><div class="line">     * &lt;/pre&gt;&lt;/blockquote&gt;</div><div class="line">     * If no such value of &lt;i&gt;k&lt;/i&gt; exists, then &#123;@code -1&#125; is returned.</div><div class="line">     *</div><div class="line">     * @param   str   the substring to search for.</div><div class="line">     * @return  the index of the first occurrence of the specified substring,</div><div class="line">     *          or &#123;@code -1&#125; if there is no such occurrence.</div><div class="line"></div><div class="line">    public int indexOf(String str) &#123;</div><div class="line">        return indexOf(str, 0);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>继续可以发现他又调用了 <code>indexOf</code> 的两个参数方法，只不过索引是 <strong>0</strong> 。</p>
+<p>然后我继续看带有两个参数的 <code>indexOf</code> 方法源码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">     * Returns the index within this string of the first occurrence of the</div><div class="line">     * specified substring, starting at the specified index.</div><div class="line">     *</div><div class="line">     * &lt;p&gt;The returned index is the smallest value &lt;i&gt;k&lt;/i&gt; for which:</div><div class="line">     * &lt;blockquote&gt;&lt;pre&gt;</div><div class="line">     * &lt;i&gt;k&lt;/i&gt; &amp;gt;= fromIndex &#123;@code &amp;&amp;&#125; this.startsWith(str, &lt;i&gt;k&lt;/i&gt;)</div><div class="line">     * &lt;/pre&gt;&lt;/blockquote&gt;</div><div class="line">     * If no such value of &lt;i&gt;k&lt;/i&gt; exists, then &#123;@code -1&#125; is returned.</div><div class="line">     *</div><div class="line">     * @param   str         the substring to search for.</div><div class="line">     * @param   fromIndex   the index from which to start the search.</div><div class="line">     * @return  the index of the first occurrence of the specified substring,</div><div class="line">     *          starting at the specified index,</div><div class="line">     *          or &#123;@code -1&#125; if there is no such occurrence.</div><div class="line">     */</div><div class="line"></div><div class="line">    public int indexOf(String str, int fromIndex) &#123;</div><div class="line">        return indexOf(value, 0, value.length,</div><div class="line">                str.value, 0, str.value.length, fromIndex);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>哈哈，发现他又调用了 <code>indexOf</code> 的方法，这次终于我们可以看到最后的 <strong>查找算法</strong> 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Code shared by String and StringBuffer to do searches. The</div><div class="line"> * source is the character array being searched, and the target</div><div class="line"> * is the string being searched for.</div><div class="line"> *</div><div class="line"> * @param   source       the characters being searched.</div><div class="line"> * @param   sourceOffset offset of the source string.</div><div class="line"> * @param   sourceCount  count of the source string.</div><div class="line"> * @param   target       the characters being searched for.</div><div class="line"> * @param   targetOffset offset of the target string.</div><div class="line"> * @param   targetCount  count of the target string.</div><div class="line"> * @param   fromIndex    the index to begin searching from.</div><div class="line"> */</div><div class="line">static int indexOf(char[] source, int sourceOffset, int sourceCount,</div><div class="line">        char[] target, int targetOffset, int targetCount,</div><div class="line">        int fromIndex) &#123;</div><div class="line">    if (fromIndex &gt;= sourceCount) &#123;</div><div class="line">        return (targetCount == 0 ? sourceCount : -1);</div><div class="line">    &#125;</div><div class="line">    if (fromIndex &lt; 0) &#123;</div><div class="line">        fromIndex = 0;</div><div class="line">    &#125;</div><div class="line">    if (targetCount == 0) &#123;</div><div class="line">        return fromIndex;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    char first = target[targetOffset];</div><div class="line">    int max = sourceOffset + (sourceCount - targetCount);</div><div class="line"></div><div class="line">    for (int i = sourceOffset + fromIndex; i &lt;= max; i++) &#123;</div><div class="line">        /* Look for first character. */</div><div class="line">        if (source[i] != first) &#123;</div><div class="line">            while (++i &lt;= max &amp;&amp; source[i] != first);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        /* Found first character, now look at the rest of v2 */</div><div class="line">        if (i &lt;= max) &#123;</div><div class="line">            int j = i + 1;</div><div class="line">            int end = j + targetCount - 1;</div><div class="line">            for (int k = targetOffset + 1; j &lt; end &amp;&amp; source[j]</div><div class="line">                    == target[k]; j++, k++);</div><div class="line"></div><div class="line">            if (j == end) &#123;</div><div class="line">                /* Found whole string. */</div><div class="line">                return i - sourceOffset;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return -1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p><strong>遇到这种问题多查看源码，想深入就得从底层做起！</strong></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你支持我买服务器！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -578,7 +321,19 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">旋转词</a>
         		</li>
       		
 		</ul>
@@ -587,18 +342,83 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Nginx/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADMElEQVR42u3aS27CUAwFUPa/aSp11A4C13aQEnMyQgWSd8zA9efxiK/n7/X39d/r6O9Hnzy6c/Kso+c+PnFhY2Nj34RdvXV+0KOnVD+Z3Ce3YGNjY29lJ0mrmgVeB+j1X3r3zNMkNjY29neye0moCqjysLGxsbF7CWwC6z13nmixsbGxd7OTplJeYOTtpLzdn4fy5F4aNjY29uXZvUHvNV9/fL6NjY2NfTH2c3AlI97efeaJ8M0TsbGxsRexkxWZJKVV360mpDyNFUKJjY2N/TXs5DG9ELweOUzOcEICw8bGxr4JO1md6YVmXswkQ4LqGCOKLjY2Nvat2Gc1bnqD2DwJJeCkjMHGxsbex85v0funP0mQ1ZHDfCyBjY2NvYk9WZ3Mi5lzi4pkDJCEHhsbG3sfu5p4eqVFuTaKR9HVtIeNjY29g53fbhKUc4+epMk3QcfGxsZex07WHydrkfMFoHkIHmcdGhsbG/ti7OSIvZZNctAkHL0Fo6i9hY2Njb2CnQ9cq2lmMjyefP6RxxgbGxt7BTtvHvUe2VvfmRQn1bYUNjY29t3Z1dZ/dQRbHQz3vlsufrCxsbEXsc8doFaHuKM9o/EKETY2NvY+dm+20JxIBA2jSaurcE5sbGzsm7OTW0/AebLJC4xeE6q83YONjY19K3ZSSPTGw9Xm/utTTZ717zU2Njb2OvYkGSTlRHLoXmHTPDk2Njb2OnavtJi3eKoFySRYb/I2NjY29s3ZvXlCUsb0xrdJIdQLzQljFGxsbOyLsedrlL1k1gtfcoZy/x8bGxt7BXuyLpODP5H2qiVKIXtjY2Nj34qdpLHqqKCX9vJ3e+0wbGxs7N3sanLKRwj5ULm3PDT62bCxsbGXsnsFQJJ+qgkpH1eMMjY2Njb2bdnP4jU57nzkUF36OQwENjY29iJ2b1GmmtKqI+QJBhsbG/s72b0R76R0OStNjobK2NjY2OvYvcTQO9wkZc5HCNjY2NjYk8Z9dV0yKUuqyQ8bGxv7m9nVlce88OgVOb22FzY2NvZWdnVRpjfQrZY3eYjLwwlsbGzsRexqa6a6ptMb4ibfqv4wo/k2NjY29hXZP+oCO07nTldFAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/【字符串】字符串逆序/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          字符串
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/28/程序访问文件的几种方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">程序访问文件的几种方式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -606,12 +426,30 @@ var _hmt = _hmt || [];
 
 
   
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <div class="duoshuo"></div>
   
 
+
+
+  <section id="comments">
+<!--高速版，加载速度快，使用前需测试页面的兼容性-->
+<div id="SOHUCS" sid="【字符串】判断两字符串是否互为旋转词？"  style="padding: 0px 30px 0px 46px;"></div>
+<script>
+  (function(){
+    var appid = 'cysWCg9Ij',
+    conf = '7f51baf245f3217589bb3b4ba8d8c691';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>
+  </section>
+  
 
           </div>
         </div>
@@ -640,8 +478,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

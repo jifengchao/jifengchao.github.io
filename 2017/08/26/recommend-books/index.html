@@ -14,14 +14,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Zhisheng的博客</title>
+  <title>那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！ | Zhisheng的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zhisheng的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！">
+<meta property="og:url" content="http://yoursite.com/2017/08/26/recommend-books/index.html">
 <meta property="og:site_name" content="Zhisheng的博客">
+<meta property="og:image" content="http://ohfk1r827.bkt.clouddn.com/learn-2004897_960_720.png-1">
+<meta property="og:updated_time" content="2017-08-28T13:59:39.113Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhisheng的博客">
+<meta name="twitter:title" content="那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！">
+<meta name="twitter:image" content="http://ohfk1r827.bkt.clouddn.com/learn-2004897_960_720.png-1">
   
     <link rel="alternative" href="/atom.xml" title="Zhisheng的博客" type="application/atom+xml">
   
@@ -180,156 +183,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Elasticsearch-install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-recommend-books" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/Elasticsearch-install/">全文搜索引擎 Elasticsearch 集群搭建入门教程</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/09/Elasticsearch-install/" class="archive-article-date">
-  	<time datetime="2017-09-09T03:56:42.374Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为 Apache 许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。基百科、Stack Overflow、Github 都采用它。</p>
-<p>本文从零开始，讲解如何使用 Elasticsearch 搭建自己的全文搜索引擎。每一步都有详细的说明，大家跟着做就能学会。<br>
-        
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Elasticsearch-analyzers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/07/Elasticsearch-analyzers/">Elasticsearch 默认分词器和中分分词器之间的比较及使用方法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/07/Elasticsearch-analyzers/" class="archive-article-date">
-  	<time datetime="2017-09-07T01:50:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>介绍：ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为Apache许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。</p>
-<p>Elasticsearch中，内置了很多分词器（analyzers）。下面来进行比较下系统默认分词器和常用的中文分词器之间的区别。<br>
-        
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-recommend-books" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/recommend-books/">那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！</a>
+    <h1 class="article-title" itemprop="name">
+      那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！
     </h1>
   
 
@@ -343,16 +204,156 @@ var _hmt = _hmt || [];
 
     <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#开头"><span class="toc-number">1.</span> <span class="toc-text">开头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#找工作经历"><span class="toc-number">2.</span> <span class="toc-text">找工作经历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#书籍推荐"><span class="toc-number">3.</span> <span class="toc-text">书籍推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Java"><span class="toc-number">3.1.</span> <span class="toc-text">Java</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux"><span class="toc-number">3.2.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算机网络"><span class="toc-number">3.3.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算机系统"><span class="toc-number">3.4.</span> <span class="toc-text">计算机系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库"><span class="toc-number">3.5.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python"><span class="toc-number">3.6.</span> <span class="toc-text">Python</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工具"><span class="toc-number">3.7.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他"><span class="toc-number">3.8.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优秀网站推荐"><span class="toc-number">4.</span> <span class="toc-text">优秀网站推荐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优秀博客推荐"><span class="toc-number">5.</span> <span class="toc-text">优秀博客推荐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后"><span class="toc-number">6.</span> <span class="toc-text">最后</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
 <!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://ohfk1r827.bkt.clouddn.com/learn-2004897_960_720.png-1" alt=""><br>
-        
-          <a class="article-more-a" href="/2017/08/26/recommend-books/#more">more >></a>
-        
+        <p><img src="http://ohfk1r827.bkt.clouddn.com/learn-2004897_960_720.png-1" alt=""><br><a id="more"></a></p>
+<h3 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h3><p>2017.08.21  正式开启我入职的里程，现在已是工作了一个星期了，这个星期算是我入职的过渡期，算是知道了学校生活和工作的差距了，总之，尽快习惯这种生活吧。下面讲下自己的找工作经历和大学阅读的书籍，算是一种书籍推荐，为还在迷茫的你指引方向，同时为我三年的大学生活致敬！也激励我大四在公司实习能更上一层楼！</p>
+<h3 id="找工作经历"><a href="#找工作经历" class="headerlink" title="找工作经历"></a>找工作经历</h3><p>这段经历，算是自己很难忘记的经历吧。既辛酸既充实的日子！也很感谢自己在这段时间的系统复习，感觉把自己的基础知识再次聚集在一起了，自己的能力在这一段时间提升的也很快。后面有机会的话我也想写一系列的相关文章，为后来准备工作（面试）的同学提供一些自己的帮助。自己在找工作的这段时间面过的公司也有几家大厂，但是结果都不是很好，对我自己有很大的压力，当时心里真的感觉 ：“自己真的有这么差”，为什么一直被拒，当时很怀疑自己的能力，自己也有总结原因。一是面试的时候自己准备的还不够充分，虽说自己脑子里对这些基础有点印象，但是面试的时候自己稍紧张下就描述不怎么清楚了，导致面试官觉得你可能广度够了，深度还不够（这是阿里面试官电话面试说的）；二是自己的表达能力还是有所欠缺，不能够将自己所要表达的东西说出来，这可能我要在后面加强的地方；三是我的学校问题。在面了几家公司失败后，终于面了家公司要我了，我也确定在这家公司了。很幸运，刚出来，就有一个很好（很负责）的架构师带我，这周就给了我一个很牛逼的项目给我看（虽然自己目前还没有思路改里面的代码），里面新东西很多，说吃透了这个项目，以后绝对可以拿出去吹逼（一脸正经.jpg）。目前我的找工作经历就简短的介绍到这里了，如果感兴趣的话，可以加群：528776268   进来和我讨论交流。</p>
+<h3 id="书籍推荐"><a href="#书籍推荐" class="headerlink" title="书籍推荐"></a>书籍推荐</h3><p>大学，我不怎么喜欢玩游戏，自己也还算不怎么堕落吧，看了以下的一些书籍，算是对我后面写博客、找工作也有很大的帮助。如果你是大神，请忽略，如果你还是还在大学，和我一样不想把时间浪费在游戏上，可以看看我推荐的一些书籍，有想讨论的请在评论下留下你的评论或者加上面给的群号。</p>
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><p>1、《Java 核心技术》卷一 、卷二              两本书，算是入门比较好的书籍了</p>
+<p>2、《疯狂 Java 讲义》                                很厚的一本书，里面的内容也是很注重基础了</p>
+<p>3、《Java 并发编程的艺术》——  方腾飞 、魏鹏、程晓明著        方腾飞 是并发编程网的创始人，里面的文章确实还不错，可以多看看里面的文章，收获绝对很大。</p>
+<p>4、《 Java多线程编程核心技术》——  高洪岩著   这本书也算是入门多线程编程的不错书籍，我之前还写了一篇读书笔记呢，<a href="http://www.54tianzhisheng.cn/2017/06/04/Java-Thread/" target="_blank" rel="external">《Java 多线程编程核心技术》学习笔记及总结</a>  , 大家如果不想看书的可以去看我的笔记。</p>
+<p>5、《Java 并发编程实战》 这本书讲的有点难懂啊，不过确实也是一本很好的书，以上三本书籍如果都弄懂了，我觉得你并发编程这块可能大概就 OK 了，然后再去看看线程池的源码，了解下线程池，我觉得那就更棒了。不想看的话，请看我的博客：<a href="http://www.54tianzhisheng.cn/2017/07/29/ThreadPool/" target="_blank" rel="external">Java 线程池艺术探索</a>  我个人觉得还是写的很不错，那些大厂面试也几乎都会问线程池的东西，然后大概内容也就是我这博客写的</p>
+<p>6、《Effective Java》中文版 第二版       算是 Java 的进阶书籍了，面试好多问题也是从这出来的</p>
+<p>7、《深入理解 Java 虚拟机——JVM高级特性与最佳实践》第二版     这算是国内讲 JVM 最清楚的书了吧，目前还是只看了一遍，后面继续啃，大厂面试几乎也是都会考 JVM 的，阿里面 JVM 特别多，想进阿里的同学请一定要买这本书去看。</p>
+<p>8、《深入分析Java  Web技术内幕  修订版》许令波著   里面知识很广，每一章都是一个不同的知识，可见作者的优秀，不愧是阿里大神。</p>
+<p>9、《大型网站系统与 Java 中间件实践》—— 曽宪杰 著    作者是前淘宝技术总监，见证了淘宝网的发展，里面的讲的内容也是很好，看完能让自己也站在高处去思考问题。</p>
+<p>10、《大型网站技术架构 —— 核心原理与案例分析》 —— 李智慧 著   最好和上面那本书籍一起看，效果更好，两本看完了，提升思想的高度！</p>
+<p>11、《疯狂Java.突破程序员基本功的16课》 李刚 著       书中很注重 Java 的一些细节，讲的很深入，但是书中的错别字特多，可以看看我的读书笔记：<a href="http://www.54tianzhisheng.cn/2017/05/31/Java-16-lession/" target="_blank" rel="external">《疯狂 Java 突破程序员基本功的 16 课》读书笔记</a></p>
+<p>12、《Spring 实战》   Spring 入门书籍</p>
+<p>13、《Spring 揭秘》—— 王福强  著   这本书别提多牛了，出版时期为 2009 年，豆瓣评分为 9.0 分，写的是真棒！把 Spring 的 IOC 和 AOP 特性写的很清楚，把 Spring 的来龙去脉讲的很全。墙裂推荐这本书籍，如果你想看 Spring，作者很牛，资深架构师，很有幸和作者有过一次交流，当时因为自己的一篇博客  <a href="http://www.54tianzhisheng.cn/2017/03/27/Pyspider%E6%A1%86%E6%9E%B6%20%E2%80%94%E2%80%94%20Python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%E4%B9%8B%E7%88%AC%E5%8F%96%20V2EX%20%E7%BD%91%E7%AB%99%E5%B8%96%E5%AD%90/" target="_blank" rel="external">Pyspider框架 —— Python爬虫实战之爬取 V2EX 网站帖子</a>，竟然找到我想叫我去实习，可惜了，当时差点就跟着他混了。作者还有一本书  《Spring Boot 揭秘》。</p>
+<p>14、《Spring 技术内幕》—— 深入解析 Spring 架构与设计原理     讲解 Spring 源码，深入了内部机制，个人觉得还是不错的。</p>
+<p>15、Spring 官方的英文文档          这个别提了，很好，能看英文尽量看英文</p>
+<p>16、《跟开涛学 Spring 3》  《跟开涛学 Spring MVC》  京东大神，膜</p>
+<p>17、《看透springMvc源代码分析与实践》    算是把 Spring MVC 源码讲的很好的了</p>
+<p>见我的笔记：</p>
+<p><a href="http://www.54tianzhisheng.cn/2017/07/09/servlet/" target="_blank" rel="external">1、通过源码详解 Servlet</a></p>
+<p><a href="http://www.54tianzhisheng.cn/2017/07/14/Spring-MVC01/" target="_blank" rel="external">2 、看透 Spring MVC 源代码分析与实践 —— 网站基础知识</a></p>
+<p><a href="http://www.54tianzhisheng.cn/2017/07/14/Spring-MVC02/" target="_blank" rel="external">3 、看透 Spring MVC 源代码分析与实践 —— 俯视 Spring MVC</a></p>
+<p><a href="http://www.54tianzhisheng.cn/2017/07/21/Spring-MVC03/" target="_blank" rel="external">4 、看透 Spring MVC 源代码分析与实践 —— Spring MVC 组件分析</a></p>
+<p>18、《Spring Boot 实战》</p>
+<p>19、Spring Boot 官方 Reference Guide        网上好多写 SpringBoot 的博客，几乎和这个差不多。</p>
+<p>20、《JavaEE开发的颠覆者: Spring Boot实战》</p>
+<p>21、MyBatis 当然是官方的文档最好了，而且还是中文的。</p>
+<p>自己也写过几篇文章，帮助过很多人入门，传送门：</p>
+<p>1、<a href="http://www.54tianzhisheng.cn/2017/03/28/%E9%80%9A%E8%BF%87%E9%A1%B9%E7%9B%AE%E9%80%90%E6%AD%A5%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Mybatis(%E4%B8%80" target="_blank" rel="external">通过项目逐步深入了解Mybatis（一）</a>/)</p>
+<p>2、<a href="http://www.54tianzhisheng.cn/2017/03/28/%E9%80%9A%E8%BF%87%E9%A1%B9%E7%9B%AE%E9%80%90%E6%AD%A5%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Mybatis(%E4%BA%8C" target="_blank" rel="external">通过项目逐步深入了解Mybatis（二）</a>/)</p>
+<p>3、<a href="http://www.54tianzhisheng.cn/2017/03/28/%E9%80%9A%E8%BF%87%E9%A1%B9%E7%9B%AE%E9%80%90%E6%AD%A5%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Mybatis(%E4%B8%89" target="_blank" rel="external">通过项目逐步深入了解Mybatis（三）</a>/)</p>
+<p>4、<a href="http://www.54tianzhisheng.cn/2017/03/28/%E9%80%9A%E8%BF%87%E9%A1%B9%E7%9B%AE%E9%80%90%E6%AD%A5%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3Mybatis(%E5%9B%9B" target="_blank" rel="external">通过项目逐步深入了解Mybatis（四）</a>/)</p>
+<p>22、《深入理解 Java 内存模型》—— 程晓明 著      我觉得每个 Java 程序员都应该了解下 Java 的内存模型，该书籍我看的是电子版的，不多，但是讲的却很清楚，把重排序、顺序一致性、Volatile、锁、final等写的很清楚。</p>
+<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>《鸟哥的Linux私房菜 基础学习篇(第三版)  》</p>
+<p>鸟哥的Linux私房菜：服务器架设篇(第3版)    鸟哥的书</p>
+<h4 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h4><p>《计算机网络第六版——谢希仁 编》</p>
+<p>《计算机网络自顶向下方法》</p>
+<h4 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h4><p>《代码揭秘：从C／C.的角度探秘计算机系统 —— 左飞》</p>
+<p>《深入理解计算机系统》</p>
+<p>《计算机科学导论_佛罗赞》</p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>《高性能MySQL》</p>
+<p>《Mysql技术内幕InnoDB存储引擎》</p>
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><p>这门语言语法很简单，上手快，不过我目前好久没用了，都忘得差不多了。当时是看的廖雪峰的 Python 博客</p>
+<p>自己也用 Python 做爬虫写过几篇博客，不过有些是在前人的基础上写的。感谢那些栽树的人！</p>
+<h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><p>Git   ： 廖雪峰的 Git 教程</p>
+<p>IDEA：<a href="https://github.com/judasn/IntelliJ-IDEA-Tutorial" target="_blank" rel="external">IntelliJ IDEA 简体中文专题教程</a></p>
+<p>Maven：《Maven实战》</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>《如何高效学习-斯科特杨》   教你怎样高效学习的</p>
+<p>《软技能：代码之外的生存指南》    程序员除了写代码，还得懂点其他的软技能。</p>
+<p>《提问的智慧“中文版”》</p>
+<p><a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way" target="_blank" rel="external">《How-To-Ask-Questions-The-Smart-Way》</a>   作为程序员的你，一定要学会咋提问，不然别人都不想鸟你。</p>
+<h3 id="优秀网站推荐"><a href="#优秀网站推荐" class="headerlink" title="优秀网站推荐"></a>优秀网站推荐</h3><p>1、GitHub     别和我说不知道</p>
+<p>2、InfoQ        文章很不错</p>
+<p>3、CSDN    经常看博客专家的博客，里面大牛很多，传送门：<a href="http://blog.csdn.net/tzs_1041218129" target="_blank" rel="external">zhisheng</a></p>
+<p>4、知乎         多关注些大牛，看他们吹逼</p>
+<p>5、掘金        自己也在上面写专栏，粉丝已经超过一万了，传送门 ：<a href="https://juejin.im/user/57510b82128fe10056ca70fc" target="_blank" rel="external">zhisheng</a></p>
+<p>6、并发编程网    前面已经介绍</p>
+<p>7、developerworks     上面的博客也很好</p>
+<p>8、博客园        里面应该大牛也很多，不过自己没在上面写过博客</p>
+<p>9、微信公众号    关注了很多人，有些人的文章确实很好。</p>
+<p>10、牛客网        刷笔试题不错的地方，里面大牛超多，怀念叶神和左神讲课的时候，还有很有爱的牛妹。</p>
+<p>11、优秀博主的博客地址了</p>
+<h3 id="优秀博客推荐"><a href="#优秀博客推荐" class="headerlink" title="优秀博客推荐"></a>优秀博客推荐</h3><p><a href="https://www.liaoxuefeng.com/" target="_blank" rel="external">廖雪峰</a>  Git 和 Python 入门文章就是从他博客看的</p>
+<p><a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="external">阮一峰的网络日志</a></p>
+<p><a href="https://coolshell.cn/" target="_blank" rel="external">酷壳-陈皓</a></p>
+<p><a href="https://www.zhihu.com/people/rednaxelafx/answers" target="_blank" rel="external">RednaxelaFX</a>   R大，牛逼的不得了</p>
+<p><a href="http://calvin1978.blogcn.com/" target="_blank" rel="external">江南白衣</a>      老司机</p>
+<p><a href="http://stormzhang.com/" target="_blank" rel="external">stormzhang</a>     人称帅逼张，微信公众号写的不错</p>
+<p><a href="http://lovestblog.cn/" target="_blank" rel="external">你假笨</a>    阿里搞 JVM 的，很厉害</p>
+<p><a href="http://www.jianshu.com/u/90ab66c248e6" target="_blank" rel="external">占小狼</a></p>
+<p><a href="http://www.bysocket.com/" target="_blank" rel="external">泥瓦匠BYSocket</a></p>
+<p><a href="http://cuiqingcai.com/" target="_blank" rel="external">崔庆才</a>   写了好多 Python 爬虫相关的文章</p>
+<p><a href="http://www.ityouknow.com/" target="_blank" rel="external">纯洁的微笑</a>    SpringBoot 系列不错，其他的文章自己看了感觉是自己喜欢的那种文笔</p>
+<p><a href="http://blog.didispace.com/" target="_blank" rel="external">程序猿DD</a></p>
+<p><a href="http://itmuch.com/" target="_blank" rel="external">周立</a></p>
+<p><a href="https://www.yunai.me/" target="_blank" rel="external">芋艿V的博客</a>     好多系列的源码分析</p>
+<p><a href="http://www.54tianzhisheng.cn/" target="_blank" rel="external">zhisheng</a>       这个是我不要脸，竟然把自己博客地址的写上去了</p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>送一句话，<strong>越努力，越幸运，祝早日成为大神！</strong></p>
+<hr>
+<p>这些地方可以找到我：</p>
+<ul>
+<li>blog:  <a href="http://www.54tianzhisheng.cn/" target="_blank" rel="external">http://www.54tianzhisheng.cn/</a></li>
+<li>GitHub: <a href="https://github.com/zhisheng17" target="_blank" rel="external">https://github.com/zhisheng17</a></li>
+<li>QQ 群：528776268</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你支持我买服务器！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -372,18 +373,83 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/26/recommend-books/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3a0W7CMAwF0P3/TzNpT0iscG2305qcPKESmhwerNjO11c8Hj/j+fPzSOYcffu6yuvz0wYGBsZtGY+343WLR0u+3+j7red/2SEVAwNjA0YeZN+H3Wqwrv59h88xMDAwgo0mQTbBY2BgYJwVcMtHt2ICjIGBgdFLYpMn1TpYr2yHgYGxG6PXGPibz5f3NzAwMP4941EcyW8nRbfmrjAwMJZmJE3EXqugmgbPD6AYGBirMs5tCcwLasmVjl9mYmBgbMPIU8f8yJiH1Kj0nwRcDAyMRRnJtvLwWgVUSYVcHAMDYwlG9UCWz+9d1BhlphgYGNsw8sV6B8Q83S0nvRgYGEsz8gSyl8r2Am6+OgYGxtqMKxoD+X2tZrKKgYGxMaNaaKsW4PI35KksBgbGboxJyEuCcuFkGpT2CpMwMDBuzpikr72MeXIhrEDCwMBYiDEp7s8bBvmvPpTwMDAwNmZMymHVotsEhoGBsTYjL2ldke6e9QQDA2NtRjXJTL49q7hWeA8GBsYGjDlgXm5LGqUfAi4GBsaijCRcVi9ezHm9K2gYGBirMh7F0Qup+Zxe8oyBgbE2Ix9VRi9xzQN9dRUMDIy7M/IWYzWxrB4Q8zA96pRiYGDcllG9WpEjy1l1KzRjYGBgzMtt+RuaJ1kMDAyMYM516W7U7MTAwNiAkRz+8oB4XZuz2cjEwMC4OaOaQPYK95M3zNsPGBgYt2V8A4HL8C5o12wmAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/09/07/Elasticsearch-analyzers/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Elasticsearch 默认分词器和中分分词器之间的比较及使用方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/18/Ubuntu-install-Nginx/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ubuntu16.10 安装 Nginx</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -391,227 +457,30 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Ubuntu-install-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/Ubuntu-install-Nginx/">Ubuntu16.10 安装 Nginx</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        
-        <a href="/2017/08/18/Ubuntu-install-Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-18T05:52:20.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装-Nginx-依赖库"><a href="#安装-Nginx-依赖库" class="headerlink" title="安装 Nginx 依赖库"></a>安装 Nginx 依赖库</h2><h3 id="安装-gcc-g-的依赖库"><a href="#安装-gcc-g-的依赖库" class="headerlink" title="安装 gcc g++ 的依赖库"></a>安装 gcc g++ 的依赖库</h3><p>Ubuntu 平台使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install build-essential</div><div class="line">apt-get install libtool</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
 
 
-
-
-
-
-
-
+  <section id="comments">
+<!--高速版，加载速度快，使用前需测试页面的兼容性-->
+<div id="SOHUCS" sid="那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！"  style="padding: 0px 30px 0px 46px;"></div>
+<script>
+  (function(){
+    var appid = 'cysWCg9Ij',
+    conf = '7f51baf245f3217589bb3b4ba8d8c691';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>
+  </section>
   
-    <article id="post-most-success" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/most-success/">马云热血励志演讲《最伟大的成功》</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/11/most-success/" class="archive-article-date">
-  	<time datetime="2017-08-11T13:56:34.713Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当你乐观的时候，总是会有机会的。那么你可能要问了“机会在哪呢？”你可能没有特别想实现的事，没有迫切要成功的欲望，没有勇攀高峰的决心，没有水滴石穿的毅力，也没有一颗所向披靡的强大心脏。那么，让来自马云的这段演讲来告诉你，你有什么。你有年轻的身体，你有奇妙的想法，你有乐观的心态，你有无限的可能性。<br>
-        
-          <a class="article-more-a" href="/2017/08/11/most-success/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">励志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/11/most-success/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Nginx/">Nginx 基本知识快速入门</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-05T12:41:33.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是-Nginx？"><a href="#什么是-Nginx？" class="headerlink" title="什么是 Nginx？"></a>什么是 Nginx？</h2><p>Nginx 是一个高性能的 HTTP 和反向代理服务器，以高稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。</p>
-<h2 id="Nginx-特点"><a href="#Nginx-特点" class="headerlink" title="Nginx 特点"></a>Nginx 特点</h2><ul>
-<li>处理静态文件，索引文件以及自动索引；打开文件描述符缓冲．</li>
-<li>无缓存的反向代理加速，简单的负载均衡和容错．</li>
-<li>FastCGI，简单的负载均衡和容错．</li>
-<li>模块化的结构。包括 gzipping, byte ranges, chunked responses,以及 SSI-filter 等 filter。如果由 FastCGI 或其它代理服务器处理单页中存在的多个 SSI，则这项处理可以并行运行，而不需要相互等待。</li>
-<li>支持 SSL 和 TLSSNI．</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/05/Nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
-
 
           </div>
         </div>
@@ -640,8 +509,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -14,14 +14,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Zhisheng的博客</title>
+  <title>Java读取文件 | Zhisheng的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zhisheng的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="以字节为单位读取文件
+以字符为单位读取文件
+以行为单位读取文件
+随机读取文件内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java读取文件">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/java读取文件/index.html">
 <meta property="og:site_name" content="Zhisheng的博客">
+<meta property="og:description" content="以字节为单位读取文件
+以字符为单位读取文件
+以行为单位读取文件
+随机读取文件内容">
+<meta property="og:updated_time" content="2017-06-13T10:42:41.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhisheng的博客">
+<meta name="twitter:title" content="Java读取文件">
+<meta name="twitter:description" content="以字节为单位读取文件
+以字符为单位读取文件
+以行为单位读取文件
+随机读取文件内容">
   
     <link rel="alternative" href="/atom.xml" title="Zhisheng的博客" type="application/atom+xml">
   
@@ -180,22 +193,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Elasticsearch-install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-java读取文件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/Elasticsearch-install/">全文搜索引擎 Elasticsearch 集群搭建入门教程</a>
+    <h1 class="article-title" itemprop="name">
+      Java读取文件
     </h1>
   
 
         
-        <a href="/2017/09/09/Elasticsearch-install/" class="archive-article-date">
-  	<time datetime="2017-09-09T03:56:42.374Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+        <a href="/2017/03/28/java读取文件/" class="archive-article-date">
+  	<time datetime="2017-03-28T10:54:05.735Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
 </a>
         
       </header>
@@ -203,371 +214,77 @@ var _hmt = _hmt || [];
 
     <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件追加内容"><span class="toc-number">1.</span> <span class="toc-text">文件追加内容</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
 <!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为 Apache 许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。基百科、Stack Overflow、Github 都采用它。</p>
-<p>本文从零开始，讲解如何使用 Elasticsearch 搭建自己的全文搜索引擎。每一步都有详细的说明，大家跟着做就能学会。<br>
-        
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Elasticsearch-analyzers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/07/Elasticsearch-analyzers/">Elasticsearch 默认分词器和中分分词器之间的比较及使用方法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/07/Elasticsearch-analyzers/" class="archive-article-date">
-  	<time datetime="2017-09-07T01:50:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>介绍：ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为Apache许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。</p>
-<p>Elasticsearch中，内置了很多分词器（analyzers）。下面来进行比较下系统默认分词器和常用的中文分词器之间的区别。<br>
-        
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-recommend-books" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/recommend-books/">那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/26/recommend-books/" class="archive-article-date">
-  	<time datetime="2017-08-26T05:38:47.267Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://ohfk1r827.bkt.clouddn.com/learn-2004897_960_720.png-1" alt=""><br>
-        
-          <a class="article-more-a" href="/2017/08/26/recommend-books/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/26/recommend-books/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Ubuntu-install-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/Ubuntu-install-Nginx/">Ubuntu16.10 安装 Nginx</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/Ubuntu-install-Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-18T05:52:20.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装-Nginx-依赖库"><a href="#安装-Nginx-依赖库" class="headerlink" title="安装 Nginx 依赖库"></a>安装 Nginx 依赖库</h2><h3 id="安装-gcc-g-的依赖库"><a href="#安装-gcc-g-的依赖库" class="headerlink" title="安装 gcc g++ 的依赖库"></a>安装 gcc g++ 的依赖库</h3><p>Ubuntu 平台使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install build-essential</div><div class="line">apt-get install libtool</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-most-success" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/most-success/">马云热血励志演讲《最伟大的成功》</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/11/most-success/" class="archive-article-date">
-  	<time datetime="2017-08-11T13:56:34.713Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当你乐观的时候，总是会有机会的。那么你可能要问了“机会在哪呢？”你可能没有特别想实现的事，没有迫切要成功的欲望，没有勇攀高峰的决心，没有水滴石穿的毅力，也没有一颗所向披靡的强大心脏。那么，让来自马云的这段演讲来告诉你，你有什么。你有年轻的身体，你有奇妙的想法，你有乐观的心态，你有无限的可能性。<br>
-        
-          <a class="article-more-a" href="/2017/08/11/most-success/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">励志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/11/most-success/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Nginx/">Nginx 基本知识快速入门</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-05T12:41:33.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是-Nginx？"><a href="#什么是-Nginx？" class="headerlink" title="什么是 Nginx？"></a>什么是 Nginx？</h2><p>Nginx 是一个高性能的 HTTP 和反向代理服务器，以高稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。</p>
-<h2 id="Nginx-特点"><a href="#Nginx-特点" class="headerlink" title="Nginx 特点"></a>Nginx 特点</h2><ul>
-<li>处理静态文件，索引文件以及自动索引；打开文件描述符缓冲．</li>
-<li>无缓存的反向代理加速，简单的负载均衡和容错．</li>
-<li>FastCGI，简单的负载均衡和容错．</li>
-<li>模块化的结构。包括 gzipping, byte ranges, chunked responses,以及 SSI-filter 等 filter。如果由 FastCGI 或其它代理服务器处理单页中存在的多个 SSI，则这项处理可以并行运行，而不需要相互等待。</li>
-<li>支持 SSL 和 TLSSNI．</li>
+        <ul>
+<li>以字节为单位读取文件</li>
+<li>以字符为单位读取文件</li>
+<li>以行为单位读取文件</li>
+<li>随机读取文件内容</li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/08/05/Nginx/#more">more >></a>
-        
+<a id="more"></a>
+<p><code>ReadFromFile.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.zhisheng.io;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * java读取文件</div><div class="line"> * Created by 10412 on 2016/12/29.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadFromFile</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 以字节为单位读取文件，常用于读二进制文件，如图片、声音、影像等文件</div><div class="line">     * <span class="doctag">@param</span> fileName 文件名</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readFileByBytes</span><span class="params">(String fileName)</span></span></div><div class="line">    &#123;</div><div class="line">        File file = <span class="keyword">new</span> File(fileName);</div><div class="line">        InputStream in = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            System.out.println(<span class="string">"以字节为单位读取文件内容，一次读取一个字节"</span>);</div><div class="line">            <span class="comment">//一次读一个字节</span></div><div class="line">            in = <span class="keyword">new</span> FileInputStream(file);</div><div class="line">            <span class="keyword">int</span> tempbyte;</div><div class="line">            <span class="keyword">while</span> ((tempbyte = in.read()) != -<span class="number">1</span>)</div><div class="line">            &#123;</div><div class="line">                System.out.println(tempbyte);</div><div class="line">            &#125;</div><div class="line">            in.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            System.out.println(<span class="string">"以字节为单位读取文件内容，一次读取多个字节"</span>);</div><div class="line">            <span class="comment">//一次读取多个字节</span></div><div class="line">            <span class="keyword">byte</span>[] tempbytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">100</span>];</div><div class="line">            <span class="keyword">int</span> byteread = <span class="number">0</span>;</div><div class="line">            in = <span class="keyword">new</span> FileInputStream(fileName);</div><div class="line">            ReadFromFile.showAvailableBytes(in);</div><div class="line">            <span class="comment">// 读入多个字节到字节数组中，byteread为一次读入的字节数</span></div><div class="line">            <span class="keyword">while</span> ((byteread = in.read(tempbytes)) != -<span class="number">1</span>) &#123;</div><div class="line">                System.out.write(tempbytes, <span class="number">0</span>, byteread);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;<span class="keyword">finally</span> &#123;</div><div class="line">            <span class="keyword">if</span> (in != <span class="keyword">null</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    in.close();</div><div class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 以字符为单位读取文件，常用于读文本，数字等类型的文件</div><div class="line">     * <span class="doctag">@param</span> fileName 文件名</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readFileByChars</span><span class="params">(String fileName)</span></span></div><div class="line">    &#123;</div><div class="line">        File file = <span class="keyword">new</span> File(fileName);</div><div class="line">        Reader reader = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line"></div><div class="line">            System.out.println(<span class="string">"以字符为单位读取文件内容，一次读一个字符："</span>);</div><div class="line">            <span class="comment">// 一次读一个字符</span></div><div class="line">            reader = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(file));</div><div class="line">            <span class="keyword">int</span> tempchar;</div><div class="line">            <span class="keyword">while</span> ((tempchar = reader.read()) != -<span class="number">1</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">// 对于windows下，\r\n这两个字符在一起时，表示一个换行。</span></div><div class="line"></div><div class="line">                <span class="comment">// 但如果这两个字符分开显示时，会换两次行。</span></div><div class="line"></div><div class="line">                <span class="comment">// 因此，屏蔽掉\r，或者屏蔽\n。否则，将会多出很多空行。</span></div><div class="line"></div><div class="line">                <span class="keyword">if</span> (((<span class="keyword">char</span>)tempchar) != <span class="string">'\r'</span>)</div><div class="line">                &#123;</div><div class="line">                    System.out.print((<span class="keyword">char</span>) tempchar);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            reader.close();</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line"></div><div class="line">            System.out.println(<span class="string">"以字符为单位读取文件内容，一次读多个字符："</span>);</div><div class="line"></div><div class="line">            <span class="comment">//一次读多个字符</span></div><div class="line">            <span class="keyword">char</span>[] tempchars = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">30</span>];</div><div class="line">            <span class="keyword">int</span> charread = <span class="number">0</span>;</div><div class="line">            reader = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(fileName));</div><div class="line"></div><div class="line">            <span class="comment">// 读入多个字符到字符数组中，charread为一次读取字符数</span></div><div class="line">            <span class="keyword">while</span> ((charread = reader.read(tempchars)) != -<span class="number">1</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">// 同样屏蔽掉\r不显示</span></div><div class="line">                <span class="keyword">if</span> ((charread == tempchars.length) &amp;&amp; (tempchars[tempchars.length - <span class="number">1</span>]) != <span class="string">'\r'</span>)</div><div class="line">                &#123;</div><div class="line">                    System.out.print(tempchars);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; charread; i++ )</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">if</span> (tempchars[i] == <span class="string">'\r'</span>)</div><div class="line">                        &#123;</div><div class="line">                            <span class="keyword">continue</span>;</div><div class="line">                        &#125;</div><div class="line">                        <span class="keyword">else</span></div><div class="line">                        &#123;</div><div class="line">                            System.out.print(tempchars[i]);</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;<span class="keyword">finally</span> &#123;</div><div class="line">            <span class="keyword">if</span> (reader != <span class="keyword">null</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    reader.close();</div><div class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 以行为单位读取文件，常用于读面向行的格式化文件</div><div class="line">     * <span class="doctag">@param</span> fileName 文件名</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readFileByLines</span><span class="params">(String fileName)</span></span></div><div class="line">    &#123;</div><div class="line">        File file = <span class="keyword">new</span> File(fileName);</div><div class="line">        BufferedReader reader =<span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            System.out.println(<span class="string">"以行为单位读取文件内容，一次读一整行："</span>);</div><div class="line"></div><div class="line">            reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(file));</div><div class="line">            String tempString = <span class="keyword">null</span>;</div><div class="line">            <span class="keyword">int</span> line = <span class="number">1</span>;</div><div class="line">            <span class="comment">// 一次读入一行，直到读入null为文件结束</span></div><div class="line">            <span class="keyword">while</span> ((tempString = reader.readLine()) != <span class="keyword">null</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">// 显示行号</span></div><div class="line">                System.out.println(<span class="string">"line "</span>+line+<span class="string">": "</span>+tempString);</div><div class="line">                line++;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;<span class="keyword">finally</span> &#123;</div><div class="line">            <span class="keyword">if</span> (reader != <span class="keyword">null</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    reader.close();</div><div class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 随机读取文件内容</div><div class="line">     * <span class="doctag">@param</span> fileName 文件名</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readFileBRandomAccess</span><span class="params">(String fileName)</span></span></div><div class="line">    &#123;</div><div class="line">        RandomAccessFile randomFile = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line"></div><div class="line">            System.out.println(<span class="string">"随机读取一段文件内容："</span>);</div><div class="line"></div><div class="line">            <span class="comment">// 打开一个随机访问文件流，按只读方式</span></div><div class="line">            randomFile = <span class="keyword">new</span> RandomAccessFile(fileName, <span class="string">"r"</span>);</div><div class="line">            <span class="comment">// 文件长度，字节数</span></div><div class="line">            <span class="keyword">long</span> fileLength = randomFile.length();</div><div class="line">            <span class="comment">// 读文件的起始位置</span></div><div class="line">            <span class="keyword">int</span> beginIndex = (fileLength &gt; <span class="number">4</span>) ? <span class="number">4</span> : <span class="number">0</span>;</div><div class="line">            <span class="comment">// 将读文件的开始位置移到beginIndex位置</span></div><div class="line">            randomFile.seek(beginIndex);</div><div class="line"></div><div class="line">            <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">10</span>];</div><div class="line">            <span class="keyword">int</span> byteread = <span class="number">0</span>;</div><div class="line">            <span class="comment">// 一次读10个字节，如果文件内容不足10个字节，则读剩下的字节。</span></div><div class="line"></div><div class="line">            <span class="comment">// 将一次读取的字节数赋给byteread</span></div><div class="line">            <span class="keyword">while</span> ((byteread = randomFile.read(bytes)) != -<span class="number">1</span>)</div><div class="line">            &#123;</div><div class="line">                System.out.write(bytes, <span class="number">0</span>, byteread);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;<span class="keyword">finally</span> &#123;</div><div class="line">            <span class="keyword">if</span> (randomFile != <span class="keyword">null</span>)</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    randomFile.close();</div><div class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 显示输入流中剩余的字节数</div><div class="line">     * <span class="doctag">@param</span> in</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showAvailableBytes</span><span class="params">(InputStream in)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            System.out.println(<span class="string">"当前字节流输入流中剩余的字节数为:"</span>+in.available());</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String fileName = <span class="string">"C:\\Users\\10412\\Desktop\\1.txt"</span>;       <span class="comment">//文本文件</span></div><div class="line">        <span class="comment">//String fileName = "C:\\Users\\10412\\Desktop\\sp20161227_204413.png";     //图片文件</span></div><div class="line">        <span class="comment">//readFileByBytes(fileName);</span></div><div class="line">        <span class="comment">//readFileByChars(fileName);</span></div><div class="line">        <span class="comment">//readFileByLines(fileName);</span></div><div class="line">        readFileBRandomAccess(fileName);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="文件追加内容"><a href="#文件追加内容" class="headerlink" title="文件追加内容"></a>文件追加内容</h3><p><code>AppendToFile.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.zhisheng.io;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileWriter;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.RandomAccessFile;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 追加内容到文件尾部</div><div class="line"> * Created by 10412 on 2016/12/29.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppendToFile</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 第一种方法追加文件：使用RandomAccessFile</div><div class="line">     * <span class="doctag">@param</span> fileName 文件名</div><div class="line">     * <span class="doctag">@param</span> content   追加内容</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">appendMethod1</span><span class="params">(String fileName, String content)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 打开一个随机访问文件流，按读写方式</span></div><div class="line">            RandomAccessFile randomFile = <span class="keyword">new</span> RandomAccessFile(fileName, <span class="string">"rw"</span>);</div><div class="line"></div><div class="line">            <span class="comment">// 文件长度，字节数</span></div><div class="line">            <span class="keyword">long</span> fileLength = randomFile.length();</div><div class="line"></div><div class="line">            <span class="comment">//将写文件指针移到文件尾</span></div><div class="line">            randomFile.seek(fileLength);</div><div class="line">            randomFile.writeBytes(content);</div><div class="line">            randomFile.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 第二种方法追加文件：使用FileWriter</div><div class="line">     * <span class="doctag">@param</span> fileName  文件名</div><div class="line">     * <span class="doctag">@param</span> content   追加内容</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">appendMethod2</span><span class="params">(String fileName, String content)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">//打开一个写文件器，构造函数中的第二个参数true表示以追加形式写文件</span></div><div class="line">            FileWriter writer = <span class="keyword">new</span> FileWriter(fileName, <span class="keyword">true</span>);</div><div class="line">            writer.write(content);</div><div class="line">            writer.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String fileName = <span class="string">"C:\\Users\\10412\\Desktop\\1.txt"</span>;       <span class="comment">//文本文件</span></div><div class="line">        String content = <span class="string">"new append!"</span>;</div><div class="line"></div><div class="line">        <span class="comment">//按方法1追加文件</span></div><div class="line"><span class="comment">//        AppendToFile.appendMethod1(fileName, content);</span></div><div class="line"><span class="comment">//        AppendToFile.appendMethod1(fileName, "\new append. 第一种方法\n");</span></div><div class="line"></div><div class="line">        <span class="comment">//按照方法2追加文件</span></div><div class="line">        AppendToFile.appendMethod2(fileName, content);</div><div class="line">        AppendToFile.appendMethod2(fileName, <span class="string">"\nnew append. 第二种方法\n"</span>);</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//显示文件内容</span></div><div class="line">        ReadFromFile.readFileByLines(fileName);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你支持我买服务器！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -578,7 +295,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">文件</a>
         		</li>
       		
 		</ul>
@@ -587,18 +308,83 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Nginx/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3awY7DIAxF0fz/T2ekWc2iIffZTCXgsqrStHBYWBj7uvC4f8f4+f1npN8+vTN5yJAhY1nGPRzjCZ7e4Yt++i1fmwwZMs5h1IIpAaebMsY/PpchQ4aM4TskHI//k4dpGTJkyJg15csxDiexMmTIkJEmsfwyrnat9qVcXIYMGQsy0sLANz//Y31DhgwZizDucKTFgFq6G69KhgwZWzP6V121oEku5kh0RfskQ4aMxRm1q/nalLVQi9JgGTJkbM3oNFuQhZKWC74FL2FdhgwZBzDSgiIBpAtNSwIyZMg4gVFLX3kpsXjIA88nZOEyZMhYilE8ioVL7xwTX2aRIUPG1ox+YaBzrdY/YsqQIeNMBm+MqB34eGU1TWhlyJCxK6N2XCMpLi9/TigtyJAh4wAGP9Kll26dVDb4fxkyZBzDmNUcVlsoP2K+BFwZMmQcwEivz0gJgYdOvpK4W0SGDBnLMkjjRedqrNb+lQZ0GTJknMBIk8k0LI7LA2ngjkuYMmTIWJzBJyZLqS2xtkEyZMg4k1FrvOBUfrgkB9YPzRYyZMjYlEFKlZ1m1guPzhbIkCFjb8YdjlqS2SlbTkhiZciQsTijFhBJIOYJLd+mzuwyZMhYncGDLClwXuFI5wraLGTIkLEdI+7OCPNHUhhI2R8CrgwZMo5nzLr65yE1KHnKkCFDxqQ2L34N9+8BV4YMGQsyeBKbBsda8TLdCBkyZOzN6BcG0hSUz9JPemXIkLE44wfU8hQZAskT6AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/Java连接Oracle数据库的三种连接方式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java连接Oracle数据库的三种连接方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/28/Bootstrap入门需掌握的知识点（二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Bootstrap入门需掌握的知识点（二）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -606,12 +392,30 @@ var _hmt = _hmt || [];
 
 
   
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <div class="duoshuo"></div>
   
 
+
+
+  <section id="comments">
+<!--高速版，加载速度快，使用前需测试页面的兼容性-->
+<div id="SOHUCS" sid="Java读取文件"  style="padding: 0px 30px 0px 46px;"></div>
+<script>
+  (function(){
+    var appid = 'cysWCg9Ij',
+    conf = '7f51baf245f3217589bb3b4ba8d8c691';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>
+  </section>
+  
 
           </div>
         </div>
@@ -640,8 +444,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

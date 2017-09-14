@@ -14,14 +14,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Zhisheng的博客</title>
+  <title>解决jdk1.8中发送邮件失败（handshake_failure）问题 | Zhisheng的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zhisheng的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="暑假在家做一个类似知乎的问答型网站（代码可见：Github/wenda  喜欢的可以给个star或者自己fork然后修改，目前功能还未很完善），其中有一个站内邮件通知系统（这里简单的讲一个例子：如果用户登录的时候出现异常，那么就会通过邮件发送通知用户）。然而却碰到一个问题。问题错误信息如下：
+
+发送邮件失败Mail server connection failed;    nested excep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决jdk1.8中发送邮件失败（handshake_failure）问题">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/解决jdk1.8中发送邮件失败（handshake_failure）问题/index.html">
 <meta property="og:site_name" content="Zhisheng的博客">
+<meta property="og:description" content="暑假在家做一个类似知乎的问答型网站（代码可见：Github/wenda  喜欢的可以给个star或者自己fork然后修改，目前功能还未很完善），其中有一个站内邮件通知系统（这里简单的讲一个例子：如果用户登录的时候出现异常，那么就会通过邮件发送通知用户）。然而却碰到一个问题。问题错误信息如下：
+
+发送邮件失败Mail server connection failed;    nested excep">
+<meta property="og:image" content="http://img.blog.csdn.net/20160812214234823">
+<meta property="og:image" content="http://img.blog.csdn.net/20160812214501830">
+<meta property="og:image" content="http://img.blog.csdn.net/20160812214625234">
+<meta property="og:image" content="http://img.blog.csdn.net/20160812215327071">
+<meta property="og:image" content="http://img.blog.csdn.net/20160812215943627">
+<meta property="og:image" content="http://img.blog.csdn.net/20160812220046041">
+<meta property="og:image" content="http://img.blog.csdn.net/20160812222233971">
+<meta property="og:updated_time" content="2017-06-13T10:44:33.711Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhisheng的博客">
+<meta name="twitter:title" content="解决jdk1.8中发送邮件失败（handshake_failure）问题">
+<meta name="twitter:description" content="暑假在家做一个类似知乎的问答型网站（代码可见：Github/wenda  喜欢的可以给个star或者自己fork然后修改，目前功能还未很完善），其中有一个站内邮件通知系统（这里简单的讲一个例子：如果用户登录的时候出现异常，那么就会通过邮件发送通知用户）。然而却碰到一个问题。问题错误信息如下：
+
+发送邮件失败Mail server connection failed;    nested excep">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160812214234823">
   
     <link rel="alternative" href="/atom.xml" title="Zhisheng的博客" type="application/atom+xml">
   
@@ -180,22 +198,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Elasticsearch-install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-解决jdk1.8中发送邮件失败（handshake_failure）问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/Elasticsearch-install/">全文搜索引擎 Elasticsearch 集群搭建入门教程</a>
+    <h1 class="article-title" itemprop="name">
+      解决jdk1.8中发送邮件失败（handshake_failure）问题
     </h1>
   
 
         
-        <a href="/2017/09/09/Elasticsearch-install/" class="archive-article-date">
-  	<time datetime="2017-09-09T03:56:42.374Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+        <a href="/2017/03/28/解决jdk1.8中发送邮件失败（handshake_failure）问题/" class="archive-article-date">
+  	<time datetime="2017-03-28T11:00:47.293Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
 </a>
         
       </header>
@@ -203,17 +219,101 @@ var _hmt = _hmt || [];
 
     <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
 <!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为 Apache 许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。基百科、Stack Overflow、Github 都采用它。</p>
-<p>本文从零开始，讲解如何使用 Elasticsearch 搭建自己的全文搜索引擎。每一步都有详细的说明，大家跟着做就能学会。<br>
-        
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/#more">more >></a>
-        
+        <p>暑假在家做一个类似知乎的问答型网站（代码可见：<a href="https://github.com/1041218129/wenda" target="_blank" rel="external">Github/wenda</a>  喜欢的可以给个star或者自己fork然后修改，目前功能还未很完善），其中有一个<strong>站内邮件通知系统</strong>（这里简单的讲一个例子：如果用户登录的时候出现异常，那么就会通过邮件发送通知用户）。然而却碰到一个问题。问题错误信息如下：</p>
+<blockquote>
+<p>发送邮件失败Mail server connection failed;    nested exception is javax.mail.MessagingException:     Could not connect to SMTP host: smtp.qq.com, port: 465;<br>nested exception is:   javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure. Failed messages: javax.mail.  MessagingException: Could not connect to SMTP   host: smtp.qq.com,  port: 465;<br>nested exception is:  <strong>javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure</strong></p>
+</blockquote>
+<a id="more"></a>
+<p>自己在将错误信息代码google了一下，找了很久发现很多解决方案，包括stackoverflow上的一些解决方案，但还是没用。然后呢用百度试了下，结果在第一条是开源中国的一篇博客:<a href="http://www.oschina.net/question/2282830_247657" target="_blank" rel="external">javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure</a>。<br><img src="http://img.blog.csdn.net/20160812214234823" alt="百度出来的结果"></p>
+<p>点进去是这样的：（如下图）<br><img src="http://img.blog.csdn.net/20160812214501830" alt="开源中国"></p>
+<p><img src="http://img.blog.csdn.net/20160812214625234" alt="正确解决方式"></p>
+<p>结果就是：这个问题是jdk导致的，jdk1.8里面有一个jce的包，安全性机制导致的访问https会报错，官网上有替代的jar包，如果替换掉就可以了。问题的解决方法还可以就是在整个项目中把你的jdk换成是1.7去，同样也可以解决这个我问题。</p>
+<p>这两个jar包的下载地址：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</a></p>
+<p><img src="http://img.blog.csdn.net/20160812215327071" alt="包下载"></p>
+<p>然后下载之后，把这个压缩文件解压，得到两个jar包去覆盖jdk安装目录下的jre\lib\security\下相同的jar包就能解决java8的邮件发送问题。</p>
+<p>接着用QQ邮箱我亲测有用，但是要注意一点就是：开启SMTP服务后要记得将你的16位授权码作为你的qq邮箱登录密码。</p>
+<blockquote>
+<p>MailSender.java中mailSender.setPassword(“16位授权码”);</p>
+<p>mailSender.setHost(“smtp.qq.com”);<br>mailSender.setPort(465);</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20160812215943627" alt="开启服务注意的地方"></p>
+<p><img src="http://img.blog.csdn.net/20160812220046041" alt="16位授权码"></p>
+<p>下面把完整代码发布出来：</p>
+<p> <strong>1. LoginExceptionHandler.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.nowcoder.async.handler;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.nowcoder.async.EventHandler;</div><div class="line"><span class="keyword">import</span> com.nowcoder.async.EventModel;</div><div class="line"><span class="keyword">import</span> com.nowcoder.async.EventType;</div><div class="line"><span class="keyword">import</span> com.nowcoder.util.MailSender;</div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"><span class="keyword">import</span> java.util.HashMap;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by 10412 on 2016/8/10.</div><div class="line"> */</div><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginExceptionHandler</span> <span class="keyword">implements</span> <span class="title">EventHandler</span></span></div><div class="line">&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    MailSender mailSender;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doHandle</span><span class="params">(EventModel model)</span> </span>&#123;</div><div class="line">        <span class="comment">// xxxx判断发现这个用户登陆异常</span></div><div class="line">        Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</div><div class="line">        map.put(<span class="string">"username"</span>, model.getExt(<span class="string">"username"</span>));</div><div class="line">        mailSender.sendWithHTMLTemplate(model.getExt(<span class="string">"email"</span>), <span class="string">"登陆IP异常"</span>, <span class="string">"mails/login_exception.html"</span>, map);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;EventType&gt; <span class="title">getSupportEventTypes</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Arrays.asList(EventType.LOGIN);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> <strong>2. LoginController.java</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line">package com.nowcoder.controller;</div><div class="line"></div><div class="line">import com.nowcoder.async.EventModel;</div><div class="line">import com.nowcoder.async.EventProducer;</div><div class="line">import com.nowcoder.async.EventType;</div><div class="line">import com.nowcoder.service.UserService;</div><div class="line">import org.apache.commons.lang.StringUtils;</div><div class="line">import org.slf4j.Logger;</div><div class="line">import org.slf4j.LoggerFactory;</div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.stereotype.Controller;</div><div class="line">import org.springframework.ui.Model;</div><div class="line">import org.springframework.web.bind.annotation.CookieValue;</div><div class="line">import org.springframework.web.bind.annotation.RequestMapping;</div><div class="line">import org.springframework.web.bind.annotation.RequestMethod;</div><div class="line">import org.springframework.web.bind.annotation.RequestParam;</div><div class="line"></div><div class="line">import javax.servlet.http.Cookie;</div><div class="line">import javax.servlet.http.HttpServletResponse;</div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by 10412 on 2016/7/2.</div><div class="line"> */</div><div class="line"></div><div class="line">@Controller</div><div class="line">public class LoginController &#123;</div><div class="line">    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);</div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    UserService userService;</div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    EventProducer eventProducer;</div><div class="line"></div><div class="line">    @RequestMapping(path = &#123;&quot;/reg/&quot;&#125;, method = &#123;RequestMethod.POST&#125;)</div><div class="line">    public String reg(Model model, @RequestParam(&quot;username&quot;) String username,</div><div class="line">                      @RequestParam(&quot;password&quot;) String password,</div><div class="line">                      @RequestParam(&quot;next&quot;) String next,</div><div class="line">                      @RequestParam(value=&quot;rememberme&quot;, defaultValue = &quot;false&quot;) boolean rememberme,</div><div class="line">                      HttpServletResponse response) &#123;</div><div class="line">        try &#123;</div><div class="line">            Map&lt;String, Object&gt; map = userService.register(username, password);</div><div class="line">            if (map.containsKey(&quot;ticket&quot;)) &#123;</div><div class="line">                Cookie cookie = new Cookie(&quot;ticket&quot;, map.get(&quot;ticket&quot;).toString());</div><div class="line">                cookie.setPath(&quot;/&quot;);</div><div class="line">                if (rememberme) &#123;</div><div class="line">                    cookie.setMaxAge(3600*24*5);</div><div class="line">                &#125;</div><div class="line">                response.addCookie(cookie);</div><div class="line">                if (StringUtils.isNotBlank(next)) &#123;</div><div class="line">                    return &quot;redirect:&quot; + next;</div><div class="line">                &#125;</div><div class="line">                return &quot;redirect:/&quot;;</div><div class="line">            &#125; else &#123;</div><div class="line">                model.addAttribute(&quot;msg&quot;, map.get(&quot;msg&quot;));</div><div class="line">                return &quot;login&quot;;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            logger.error(&quot;注册异常&quot; + e.getMessage());</div><div class="line">            model.addAttribute(&quot;msg&quot;, &quot;服务器错误&quot;);</div><div class="line">            return &quot;login&quot;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(path = &#123;&quot;/reglogin&quot;&#125;, method = &#123;RequestMethod.GET&#125;)</div><div class="line">    public String regloginPage(Model model, @RequestParam(value = &quot;next&quot;, required = false) String next) &#123;</div><div class="line">        model.addAttribute(&quot;next&quot;, next);</div><div class="line">        return &quot;login&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(path = &#123;&quot;/login/&quot;&#125;, method = &#123;RequestMethod.POST&#125;)</div><div class="line">    public String login(Model model, @RequestParam(&quot;username&quot;) String username,</div><div class="line">                        @RequestParam(&quot;password&quot;) String password,</div><div class="line">                        @RequestParam(value=&quot;next&quot;, required = false) String next,</div><div class="line">                        @RequestParam(value=&quot;rememberme&quot;, defaultValue = &quot;false&quot;) boolean rememberme,</div><div class="line">                        HttpServletResponse response) &#123;</div><div class="line">        try &#123;</div><div class="line">            Map&lt;String, Object&gt; map = userService.login(username, password);</div><div class="line">            if (map.containsKey(&quot;ticket&quot;)) &#123;</div><div class="line">                Cookie cookie = new Cookie(&quot;ticket&quot;, map.get(&quot;ticket&quot;).toString());</div><div class="line">                cookie.setPath(&quot;/&quot;);</div><div class="line">                if (rememberme) &#123;</div><div class="line">                    cookie.setMaxAge(3600*24*5);</div><div class="line">                &#125;</div><div class="line">                response.addCookie(cookie);</div><div class="line"></div><div class="line">                eventProducer.fireEvent(new EventModel(EventType.LOGIN)</div><div class="line">                        .setExt(&quot;username&quot;, username).setExt(&quot;email&quot;, &quot;****@qq.com&quot;)</div><div class="line">                        .setActorId((int)map.get(&quot;userId&quot;)));</div><div class="line"></div><div class="line">                if (StringUtils.isNotBlank(next)) &#123;</div><div class="line">                    return &quot;redirect:&quot; + next;</div><div class="line">                &#125;</div><div class="line">                return &quot;redirect:/&quot;;</div><div class="line">            &#125; else &#123;</div><div class="line">                model.addAttribute(&quot;msg&quot;, map.get(&quot;msg&quot;));</div><div class="line">                return &quot;login&quot;;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            logger.error(&quot;登陆异常&quot; + e.getMessage());</div><div class="line">            return &quot;login&quot;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(path = &#123;&quot;/logout&quot;&#125;, method = &#123;RequestMethod.GET, RequestMethod.POST&#125;)</div><div class="line">    public String logout(@CookieValue(&quot;ticket&quot;) String ticket) &#123;</div><div class="line">        userService.logout(ticket);</div><div class="line">        return &quot;redirect:/&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> <strong>3. EventHandler.java</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">package com.nowcoder.async;</div><div class="line"></div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by 10412 on 2016/8/10.</div><div class="line"> */</div><div class="line">public interface EventHandler</div><div class="line">&#123;</div><div class="line">    void doHandle(EventModel model);</div><div class="line"></div><div class="line">    List&lt;EventType&gt; getSupportEventTypes();</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> <strong>4. MailSender.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.nowcoder.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.velocity.app.VelocityEngine;</div><div class="line"><span class="keyword">import</span> org.slf4j.Logger;</div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.InitializingBean;</div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"><span class="keyword">import</span> org.springframework.mail.javamail.JavaMailSenderImpl;</div><div class="line"><span class="keyword">import</span> org.springframework.mail.javamail.MimeMessageHelper;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</div><div class="line"><span class="keyword">import</span> org.springframework.ui.velocity.VelocityEngineUtils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.mail.internet.InternetAddress;</div><div class="line"><span class="keyword">import</span> javax.mail.internet.MimeMessage;</div><div class="line"><span class="keyword">import</span> javax.mail.internet.MimeUtility;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"><span class="keyword">import</span> java.util.Properties;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by 10412 on 2016/8/10. // ***<span class="doctag">@qq</span>.com   wnppafhsbrcgbfbh（16位授权码）</div><div class="line"> */</div><div class="line"><span class="meta">@Service</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailSender</span> <span class="keyword">implements</span> <span class="title">InitializingBean</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(MailSender.class);</div><div class="line">    <span class="keyword">private</span> JavaMailSenderImpl mailSender;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="keyword">private</span> VelocityEngine velocityEngine;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">sendWithHTMLTemplate</span><span class="params">(String to, String subject, String template, Map&lt;String, Object&gt; model)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            String nick = MimeUtility.encodeText(<span class="string">"***"</span>);</div><div class="line">            InternetAddress from = <span class="keyword">new</span> InternetAddress(nick + <span class="string">"&lt;****@qq.com&gt;"</span>);</div><div class="line">            MimeMessage mimeMessage = mailSender.createMimeMessage();</div><div class="line">            MimeMessageHelper mimeMessageHelper = <span class="keyword">new</span> MimeMessageHelper(mimeMessage);</div><div class="line">            String result = VelocityEngineUtils</div><div class="line">                    .mergeTemplateIntoString(velocityEngine, template, <span class="string">"UTF-8"</span>, model);</div><div class="line">            mimeMessageHelper.setTo(to);</div><div class="line">            mimeMessageHelper.setFrom(from);</div><div class="line">            mimeMessageHelper.setSubject(subject);</div><div class="line">            mimeMessageHelper.setText(result, <span class="keyword">true</span>);</div><div class="line">            mailSender.send(mimeMessage);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            logger.error(<span class="string">"发送邮件失败"</span> + e.getMessage());</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        mailSender = <span class="keyword">new</span> JavaMailSenderImpl();</div><div class="line">        mailSender.setUsername(<span class="string">"***@qq.com"</span>);</div><div class="line">        mailSender.setPassword(<span class="string">"wnppafhsbrcgbfbh"</span>);   <span class="comment">//qq邮箱开启smtp服务后使用16位授权码在第三方登录</span></div><div class="line"><span class="comment">//        mailSender.setHost("smtp.exmail.qq.com");</span></div><div class="line">        mailSender.setHost(<span class="string">"smtp.qq.com"</span>);</div><div class="line">        mailSender.setPort(<span class="number">465</span>);</div><div class="line"></div><div class="line"><span class="comment">//        mailSender.setHost("smtp.163.com");      //163邮箱</span></div><div class="line"><span class="comment">//        mailSender.setPort(25);</span></div><div class="line">        mailSender.setProtocol(<span class="string">"smtps"</span>);</div><div class="line">        mailSender.setDefaultEncoding(<span class="string">"utf8"</span>);</div><div class="line">        Properties javaMailProperties = <span class="keyword">new</span> Properties();</div><div class="line">        javaMailProperties.put(<span class="string">"mail.smtp.ssl.enable"</span>, <span class="keyword">true</span>);</div><div class="line">        <span class="comment">//javaMailProperties.put("mail.smtp.auth", true);</span></div><div class="line">        <span class="comment">//javaMailProperties.put("mail.smtp.starttls.enable", true);</span></div><div class="line">        mailSender.setJavaMailProperties(javaMailProperties);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> <strong>5. login_exception.html</strong>  发送消息模板（可自定义）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">你好$username，你的登陆有问题!</div></pre></td></tr></table></figure>
+<p>一切都好了，运行。</p>
+<p>登录。</p>
+<p>发送邮件过来了。</p>
+<p><img src="http://img.blog.csdn.net/20160812222233971" alt="邮件发过来了"></p>
+<p>总结来说：<strong>这个错误就是jdk1.8中的一个jce的包，安全性机制导致访问https会报错。</strong></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你支持我买服务器！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -224,77 +324,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Elasticsearch-analyzers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/07/Elasticsearch-analyzers/">Elasticsearch 默认分词器和中分分词器之间的比较及使用方法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/07/Elasticsearch-analyzers/" class="archive-article-date">
-  	<time datetime="2017-09-07T01:50:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>介绍：ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为Apache许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。</p>
-<p>Elasticsearch中，内置了很多分词器（analyzers）。下面来进行比较下系统默认分词器和常用的中文分词器之间的区别。<br>
-        
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">邮件发送</a>
         		</li>
       		
 		</ul>
@@ -303,18 +337,83 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLklEQVR42u3aQW7jMAwF0N7/0h1gtjNO/6ccIGafVkWjxnr0giWpr694ff9dyZ6r9Xr/v0+5+vT1b25e2NjY2A9hJ8dNHp+Q8oO24atDj42Njb2OnX/d1afJcV+Dr8KXhCa3YGNjY/9mdrI/T295EsLGxsbGfkcCy4uQfP/rp+RlEjY2NvbvZCdfPTvirLzJw/32Xho2Njb2x7PbQe8n//zG+TY2Njb2R7K/y9Umjzx8JwVPrcDGxsZexG7Hq/nVnKSVn+/Jv7MYLWNjY2OvYOeXIGf4tvGUN7byWuM/Z8bGxsZexz5pps8OPStX2hBcvjBsbGzsRez2mk4+cL2ruX/yncWLxMbGxn44u23TnySq2YWeNqFGqQsbGxt7KTtJYO3+pJE0G0vMBhjY2NjYm9gnLaQ8NPlgIG/xJ0+83IONjY29iN2WB7NGT3tNZxaUJLjFJmxsbOwHsvOBa/JXbSjbEXL72i4TGDY2NvY6dnvEvBQ5CVz+xGQsgY2Njb2V3TZlTka8s6KiveLzQ6CxsbGxF7FnqeiudV6QzIbH2NjY2FvZswHArKlUHC54VUkixMbGxt7HTga0syIhH/GeXOuZZSVsbGzsTeyTplKbWpJRQVu0zF4VNjY29iZ23tA/bwOdlBB5wysa/WJjY2MvYuejgpN0NUs59xY5kQUbGxt7KXs2aj2/XtOGO0+r2NjY2JvY+WWXem5chi9PV+1JLqci2NjY2CvYyT/u+TA4Oe6skXRX++ny4g42Njb2Y9kn4DwQs9T1jiR6w3vGxsbG/kh2nfFGzf3zAuOkdMHGxsbeym4bSe9OUbNSpG2EYWNjY29it4xkyDob7t6V8KL+PzY2NvY6dn6sBN8eaFZIzJ6CjY2NvZWdr7zRk1+maQcM+Yi37qVhY2NjP5Cdr5MHz/bUBcYoAWNjY2PvYLdJazaaPYn6XUEfDgmwsbGxH8KeXZdpk0qOzEuRYfiwsbGxfyV7VjDMGlInrago6WJjY2NjjxJMXlS8PnpbOBVHwcbGxn4sO7+COStF7h33zs42HA9gY2Njfzy7TTz5Fcz8KG0hkVzQGSY2bGxs7Cex/wDE5+hMz6AQTQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/04/05/String-new/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          关于String s = new String(&quot;xyz&quot;); 创建几个对象的问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/28/循环队列的相关条件和公式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">循环队列的相关条件和公式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -322,296 +421,30 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-recommend-books" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/recommend-books/">那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        
-        <a href="/2017/08/26/recommend-books/" class="archive-article-date">
-  	<time datetime="2017-08-26T05:38:47.267Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://ohfk1r827.bkt.clouddn.com/learn-2004897_960_720.png-1" alt=""><br>
-        
-          <a class="article-more-a" href="/2017/08/26/recommend-books/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/26/recommend-books/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
 
 
-
-
-
-
-
-
+  <section id="comments">
+<!--高速版，加载速度快，使用前需测试页面的兼容性-->
+<div id="SOHUCS" sid="解决jdk1.8中发送邮件失败（handshake_failure）问题"  style="padding: 0px 30px 0px 46px;"></div>
+<script>
+  (function(){
+    var appid = 'cysWCg9Ij',
+    conf = '7f51baf245f3217589bb3b4ba8d8c691';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>
+  </section>
   
-    <article id="post-Ubuntu-install-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/Ubuntu-install-Nginx/">Ubuntu16.10 安装 Nginx</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/Ubuntu-install-Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-18T05:52:20.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装-Nginx-依赖库"><a href="#安装-Nginx-依赖库" class="headerlink" title="安装 Nginx 依赖库"></a>安装 Nginx 依赖库</h2><h3 id="安装-gcc-g-的依赖库"><a href="#安装-gcc-g-的依赖库" class="headerlink" title="安装 gcc g++ 的依赖库"></a>安装 gcc g++ 的依赖库</h3><p>Ubuntu 平台使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install build-essential</div><div class="line">apt-get install libtool</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-most-success" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/most-success/">马云热血励志演讲《最伟大的成功》</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/11/most-success/" class="archive-article-date">
-  	<time datetime="2017-08-11T13:56:34.713Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当你乐观的时候，总是会有机会的。那么你可能要问了“机会在哪呢？”你可能没有特别想实现的事，没有迫切要成功的欲望，没有勇攀高峰的决心，没有水滴石穿的毅力，也没有一颗所向披靡的强大心脏。那么，让来自马云的这段演讲来告诉你，你有什么。你有年轻的身体，你有奇妙的想法，你有乐观的心态，你有无限的可能性。<br>
-        
-          <a class="article-more-a" href="/2017/08/11/most-success/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">励志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/11/most-success/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Nginx/">Nginx 基本知识快速入门</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-05T12:41:33.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是-Nginx？"><a href="#什么是-Nginx？" class="headerlink" title="什么是 Nginx？"></a>什么是 Nginx？</h2><p>Nginx 是一个高性能的 HTTP 和反向代理服务器，以高稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。</p>
-<h2 id="Nginx-特点"><a href="#Nginx-特点" class="headerlink" title="Nginx 特点"></a>Nginx 特点</h2><ul>
-<li>处理静态文件，索引文件以及自动索引；打开文件描述符缓冲．</li>
-<li>无缓存的反向代理加速，简单的负载均衡和容错．</li>
-<li>FastCGI，简单的负载均衡和容错．</li>
-<li>模块化的结构。包括 gzipping, byte ranges, chunked responses,以及 SSI-filter 等 filter。如果由 FastCGI 或其它代理服务器处理单页中存在的多个 SSI，则这项处理可以并行运行，而不需要相互等待。</li>
-<li>支持 SSL 和 TLSSNI．</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/05/Nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
-
 
           </div>
         </div>
@@ -640,8 +473,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

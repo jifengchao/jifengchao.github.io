@@ -14,14 +14,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Zhisheng的博客</title>
+  <title>Java连接Oracle数据库的三种连接方式 | Zhisheng的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zhisheng的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="背景：这两天在学习Oracle数据库，这里就总结下自己上课所学的知识，同时记录下来，方便整理当天所学下的知识，也同时方便日后自己查询。
+SQL语句的话，这里我就不多讲了，感觉和其他的数据库（MySQL、SQL Server）都是类似，区别不大。
+今天在这里就写下 Java 连接 Oracle 数据库的三种连接方式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java连接Oracle数据库的三种连接方式">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/Java连接Oracle数据库的三种连接方式/index.html">
 <meta property="og:site_name" content="Zhisheng的博客">
+<meta property="og:description" content="背景：这两天在学习Oracle数据库，这里就总结下自己上课所学的知识，同时记录下来，方便整理当天所学下的知识，也同时方便日后自己查询。
+SQL语句的话，这里我就不多讲了，感觉和其他的数据库（MySQL、SQL Server）都是类似，区别不大。
+今天在这里就写下 Java 连接 Oracle 数据库的三种连接方式。">
+<meta property="og:image" content="http://img.blog.csdn.net/20161227204543704?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20161227204438642?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20161227205503547?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-06-13T10:42:52.339Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhisheng的博客">
+<meta name="twitter:title" content="Java连接Oracle数据库的三种连接方式">
+<meta name="twitter:description" content="背景：这两天在学习Oracle数据库，这里就总结下自己上课所学的知识，同时记录下来，方便整理当天所学下的知识，也同时方便日后自己查询。
+SQL语句的话，这里我就不多讲了，感觉和其他的数据库（MySQL、SQL Server）都是类似，区别不大。
+今天在这里就写下 Java 连接 Oracle 数据库的三种连接方式。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161227204543704?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Zhisheng的博客" type="application/atom+xml">
   
@@ -180,22 +194,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Elasticsearch-install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Java连接Oracle数据库的三种连接方式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/Elasticsearch-install/">全文搜索引擎 Elasticsearch 集群搭建入门教程</a>
+    <h1 class="article-title" itemprop="name">
+      Java连接Oracle数据库的三种连接方式
     </h1>
   
 
         
-        <a href="/2017/09/09/Elasticsearch-install/" class="archive-article-date">
-  	<time datetime="2017-09-09T03:56:42.374Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+        <a href="/2017/03/28/Java连接Oracle数据库的三种连接方式/" class="archive-article-date">
+  	<time datetime="2017-03-28T10:54:21.861Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
 </a>
         
       </header>
@@ -203,371 +215,119 @@ var _hmt = _hmt || [];
 
     <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景："><span class="toc-number">1.</span> <span class="toc-text">背景：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具："><span class="toc-number">2.</span> <span class="toc-text">工具：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建数据库表："><span class="toc-number">3.</span> <span class="toc-text">创建数据库表：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入数据："><span class="toc-number">4.</span> <span class="toc-text">插入数据：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDBC的六大步骤："><span class="toc-number">5.</span> <span class="toc-text">JDBC的六大步骤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三种连接方式"><span class="toc-number">6.</span> <span class="toc-text">三种连接方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注解："><span class="toc-number">7.</span> <span class="toc-text">注解：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行截图："><span class="toc-number">8.</span> <span class="toc-text">运行截图：</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
 <!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为 Apache 许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。基百科、Stack Overflow、Github 都采用它。</p>
-<p>本文从零开始，讲解如何使用 Elasticsearch 搭建自己的全文搜索引擎。每一步都有详细的说明，大家跟着做就能学会。<br>
-        
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Elasticsearch-analyzers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/07/Elasticsearch-analyzers/">Elasticsearch 默认分词器和中分分词器之间的比较及使用方法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/07/Elasticsearch-analyzers/" class="archive-article-date">
-  	<time datetime="2017-09-07T01:50:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>介绍：ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为Apache许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。</p>
-<p>Elasticsearch中，内置了很多分词器（analyzers）。下面来进行比较下系统默认分词器和常用的中文分词器之间的区别。<br>
-        
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-recommend-books" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/recommend-books/">那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/26/recommend-books/" class="archive-article-date">
-  	<time datetime="2017-08-26T05:38:47.267Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://ohfk1r827.bkt.clouddn.com/learn-2004897_960_720.png-1" alt=""><br>
-        
-          <a class="article-more-a" href="/2017/08/26/recommend-books/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/26/recommend-books/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Ubuntu-install-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/Ubuntu-install-Nginx/">Ubuntu16.10 安装 Nginx</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/Ubuntu-install-Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-18T05:52:20.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装-Nginx-依赖库"><a href="#安装-Nginx-依赖库" class="headerlink" title="安装 Nginx 依赖库"></a>安装 Nginx 依赖库</h2><h3 id="安装-gcc-g-的依赖库"><a href="#安装-gcc-g-的依赖库" class="headerlink" title="安装 gcc g++ 的依赖库"></a>安装 gcc g++ 的依赖库</h3><p>Ubuntu 平台使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install build-essential</div><div class="line">apt-get install libtool</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-most-success" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/most-success/">马云热血励志演讲《最伟大的成功》</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/11/most-success/" class="archive-article-date">
-  	<time datetime="2017-08-11T13:56:34.713Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当你乐观的时候，总是会有机会的。那么你可能要问了“机会在哪呢？”你可能没有特别想实现的事，没有迫切要成功的欲望，没有勇攀高峰的决心，没有水滴石穿的毅力，也没有一颗所向披靡的强大心脏。那么，让来自马云的这段演讲来告诉你，你有什么。你有年轻的身体，你有奇妙的想法，你有乐观的心态，你有无限的可能性。<br>
-        
-          <a class="article-more-a" href="/2017/08/11/most-success/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">励志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/11/most-success/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Nginx/">Nginx 基本知识快速入门</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-05T12:41:33.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是-Nginx？"><a href="#什么是-Nginx？" class="headerlink" title="什么是 Nginx？"></a>什么是 Nginx？</h2><p>Nginx 是一个高性能的 HTTP 和反向代理服务器，以高稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。</p>
-<h2 id="Nginx-特点"><a href="#Nginx-特点" class="headerlink" title="Nginx 特点"></a>Nginx 特点</h2><ul>
-<li>处理静态文件，索引文件以及自动索引；打开文件描述符缓冲．</li>
-<li>无缓存的反向代理加速，简单的负载均衡和容错．</li>
-<li>FastCGI，简单的负载均衡和容错．</li>
-<li>模块化的结构。包括 gzipping, byte ranges, chunked responses,以及 SSI-filter 等 filter。如果由 FastCGI 或其它代理服务器处理单页中存在的多个 SSI，则这项处理可以并行运行，而不需要相互等待。</li>
-<li>支持 SSL 和 TLSSNI．</li>
+        <h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><p>这两天在学习Oracle数据库，这里就总结下自己上课所学的知识，同时记录下来，方便整理当天所学下的知识，也同时方便日后自己查询。</p>
+<p>SQL语句的话，这里我就不多讲了，感觉和其他的数据库（MySQL、SQL Server）都是类似，区别不大。</p>
+<p>今天在这里就写下 Java 连接 Oracle 数据库的三种连接方式。<br><a id="more"></a></p>
+<h3 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h3><ul>
+<li>Oracle Database 10g Express Edition</li>
+<li>cmd命令窗口</li>
+<li>IDEA 2016.1.3</li>
+<li>ojdbc6_g.jar（数据库驱动包）</li>
+<li>jdk 1.8</li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/08/05/Nginx/#more">more >></a>
-        
+<h3 id="创建数据库表："><a href="#创建数据库表：" class="headerlink" title="创建数据库表："></a>创建数据库表：</h3><p>首先在本地写好创建的数据库表的创建代码后，然后粘贴在cmd命令窗口下，即可创建成功。（前提是进入安装好了oracle，进入了用户，然后在当前用户下创建这个表）</p>
+<p>部门表：tb1_dept   （含有id   name   city三个属性）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb1_dept(</div><div class="line">    <span class="keyword">id</span>  <span class="built_in">number</span>(<span class="number">5</span>) primary <span class="keyword">key</span>,</div><div class="line">    <span class="keyword">name</span> varchar2(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</div><div class="line">    city varchar2(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="插入数据："><a href="#插入数据：" class="headerlink" title="插入数据："></a>插入数据：</h3><p>然后同样写好插入数据的sql语句，这里我就写三条数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">insert into tb1_dept(id, name, city) values(1,&apos;java&apos;, &apos;南昌&apos;);</div><div class="line">insert into tb1_dept(id, name, city) values(2,&apos;c&apos;, &apos;上海&apos;);</div><div class="line">insert into tb1_dept(id, name, city) values(3,&apos;java&apos;, &apos;南昌&apos;);</div></pre></td></tr></table></figure>
+<p>好，数据库表已经创建好了，接下来我们需要准备的是数据库驱动包。</p>
+<p>这里我用的是 <code>ojdbc6_g.jar</code> 驱动包。</p>
+<p>接下来先了解一些基础知识：</p>
+<hr>
+<h3 id="JDBC的六大步骤："><a href="#JDBC的六大步骤：" class="headerlink" title="JDBC的六大步骤："></a>JDBC的六大步骤：</h3><p>这里我们就按照jdbc的这六大步骤执行下去：</p>
+<ul>
+<li>注册驱动</li>
+<li>获取连接</li>
+<li>获取执行sql语句对象</li>
+<li>执行sql语句</li>
+<li>处理结果集</li>
+<li>关闭资源</li>
+</ul>
+<p><strong>URL</strong>：统一资源定位器</p>
+<p><strong>oracle URL</strong>：    <code>jdbc:oracle:thin:@localhost:1521:XE</code></p>
+<p>   <code>jdbc:oracle:thin:@127.0.0.1:1521:XE</code></p>
+<p><strong>MySQL URL</strong>：<code>jdbc:mysql://localhost:3306/数据库名称</code></p>
+<p><strong>thin</strong>：小型驱动，驱动方式</p>
+<p>@localhost  本机ip地址    127.0.0.1</p>
+<p><strong>XE</strong>：数据库的名字</p>
+<p>ipconfig：ip地址查询</p>
+<p>URI：统一资源标识符</p>
+<p>URN：用特定命名空间的名字标识资源</p>
+<p>如果你不知道 URL、 URI、URN三者的区别的话，那么你可以参考下面我推荐的一篇文章。</p>
+<p><a href="http://web.jobbole.com/83452/" target="_blank" rel="external">你知道URL、URI和URN三者之间的区别吗？</a></p>
+<hr>
+<h3 id="三种连接方式"><a href="#三种连接方式" class="headerlink" title="三种连接方式"></a>三种连接方式</h3><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.zhisheng.test.jdbc;</div><div class="line"></div><div class="line"><span class="keyword">import</span> oracle.jdbc.driver.OracleDriver;</div><div class="line"><span class="keyword">import</span> java.sql.*;</div><div class="line"><span class="keyword">import</span> java.util.Properties;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by 10412 on 2016/12/27.</div><div class="line"> * JDBC的六大步骤</div><div class="line"> * JAVA连接Oracle的三种方式</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JdbcTest</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Connection connect = <span class="keyword">null</span>;</div><div class="line">        Statement statement = <span class="keyword">null</span>;</div><div class="line">        ResultSet resultSet = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">//第一步：注册驱动</span></div><div class="line">            <span class="comment">//第一种方式：类加载(常用)</span></div><div class="line">            <span class="comment">//Class.forName("oracle.jdbc.OracleDriver");</span></div><div class="line"></div><div class="line">            <span class="comment">//第二种方式：利用Driver对象</span></div><div class="line">            Driver driver = <span class="keyword">new</span> OracleDriver();</div><div class="line">            DriverManager.deregisterDriver(driver);</div><div class="line"></div><div class="line">            <span class="comment">//第三种方式:利用系统参数  需在idea中配置program arguments为下面的参数</span></div><div class="line">            <span class="comment">//-Djdbc.drivers = oracle.jdbc.OracleDriver</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">            <span class="comment">//第二步：获取连接</span></div><div class="line">            <span class="comment">//第一种方式：利用DriverManager（常用）</span></div><div class="line">            <span class="comment">//connect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "你的oracle数据库用户名", "用户名密码");</span></div><div class="line"></div><div class="line">            <span class="comment">//第二种方式：直接使用Driver</span></div><div class="line">            Properties pro = <span class="keyword">new</span> Properties();</div><div class="line">            pro.put(<span class="string">"user"</span>, <span class="string">"你的oracle数据库用户名"</span>);</div><div class="line">            pro.put(<span class="string">"password"</span>, <span class="string">"用户名密码"</span>);</div><div class="line">            connect = driver.connect(<span class="string">"jdbc:oracle:thin:@localhost:1521:XE"</span>, pro);</div><div class="line"></div><div class="line">			<span class="comment">//测试connect正确与否</span></div><div class="line">            System.out.println(connect);</div><div class="line"></div><div class="line"></div><div class="line">            <span class="comment">//第三步：获取执行sql语句对象</span></div><div class="line">            <span class="comment">//第一种方式:statement</span></div><div class="line">            <span class="comment">//statement = connect.createStatement();</span></div><div class="line"></div><div class="line">            <span class="comment">//第二种方式：PreStatement</span></div><div class="line">            PreparedStatement preState = connect.prepareStatement(<span class="string">"select  * from tb1_dept where id = ?"</span>);</div><div class="line"></div><div class="line"></div><div class="line">            <span class="comment">//第四步：执行sql语句</span></div><div class="line">            <span class="comment">//第一种方式：</span></div><div class="line">            <span class="comment">//resultSet = statement.executeQuery("select  * from tb1_dept");</span></div><div class="line"></div><div class="line">            <span class="comment">//第二种方式：</span></div><div class="line">            preState.setInt(<span class="number">1</span>, <span class="number">2</span>);<span class="comment">//1是指sql语句中第一个？,  2是指第一个？的values值</span></div><div class="line">            <span class="comment">//resultSet = preState.executeQuery();        //执行查询语句</span></div><div class="line">            <span class="comment">//查询任何语句，如果有结果集，返回true，没有的话返回false,注意如果是插入一条数据的话，虽然是没有结果集，返回false，但是却能成功的插入一条数据</span></div><div class="line">            <span class="keyword">boolean</span> execute = preState.execute();</div><div class="line">            System.out.println(execute);</div><div class="line"></div><div class="line">            <span class="comment">//第五步：处理结果集</span></div><div class="line">            <span class="keyword">while</span> (resultSet.next())</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">int</span> id = resultSet.getInt(<span class="string">"id"</span>);</div><div class="line">                String name = resultSet.getString(<span class="string">"name"</span>);</div><div class="line">                String city = resultSet.getString(<span class="string">"city"</span>);</div><div class="line">                System.out.println(id+<span class="string">"   "</span>+name+<span class="string">"   "</span>+city);  <span class="comment">//打印输出结果集</span></div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;<span class="keyword">finally</span> &#123;</div><div class="line">            <span class="comment">//第六步：关闭资源</span></div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="keyword">if</span> (resultSet!=<span class="keyword">null</span>) resultSet.close();</div><div class="line">                    <span class="keyword">if</span> (statement!=<span class="keyword">null</span>) statement.close();</div><div class="line">                    <span class="keyword">if</span> (connect!=<span class="keyword">null</span>) connect.close();</div><div class="line">                &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="注解："><a href="#注解：" class="headerlink" title="注解："></a>注解：</h3><p>1、 第一步：注册驱动 中的第三种方法 利用系统参数  需在idea中配置program arguments为下面的参数</p>
+<p>这里我说一下怎么在IDEA中的配置方式吧</p>
+<p><img src="http://img.blog.csdn.net/20161227204543704?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20161227204438642?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="运行截图："><a href="#运行截图：" class="headerlink" title="运行截图："></a>运行截图：</h3><p><img src="http://img.blog.csdn.net/20161227205503547?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>OK !</p>
+<p>下篇文章将写 JDBC 的封装。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你支持我买服务器！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -578,7 +338,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Oracle</a>
         		</li>
       		
 		</ul>
@@ -587,18 +355,83 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Nginx/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvElEQVR42u3awW7jMAwE0Pz/T+9eCyzizJBS2wWeT0ET2HwuIAlDvl7x9efL1f7967f5Hf79/bvfHLjw8PDwFqUnZb0rMf82v//z759rxsPDw7vNSxblzfbwXNapTQIPDw/v9/M+LMrlop/fHw8PD+9/4UW3C4KD/Aj+rRsDHh4eXslrD7tJoJBvGHkeezFrwcPDw4t5s1v/7Ocr/T08PDy8dVc9b4klW0Xy3HYc4UOdeHh4eBd47aKct8E2LbEcE71WPDw8vKO85yJmBZ1qobUH67dbAh4eHt4F3iY2TY7XyfawCXDrzh4eHh7egvdMnS3ZSawwGyPYvG48PDy8U7zieBq3oDabQf5qipkIPDw8vKO8/GD9/Ji2cZU8JdmQ8PDw8H6K1yI3owazgYDk6F/kGXh4eHgL3qa1nwcKs3Gr/FD+9p54eHh413j5oty2qZLIo/1NsfHg4eHhXeCdWr7PjhFsXg0eHh7ed/I2IwJt22xf9Oo/hoeHh3eIlyef7fYQzXwdDS9WwS4eHh7e49PzEahZg7+9ZvFxkVLj4eHhHeLtRwFmcfDsicVrxcPDw7vAy8OIJJZthwbyEKSNRfDw8PDu8dpW0+xg3cLyptqHaBgPDw/vGq9t/+ftrlm5+bcf6sHDw8O7xmvbTvkRfB9wtIf1Vz6hgIeHhzfitW2nWaHtoFWy5VzpquHh4eEtYO320B7Ek8ijHfnCw8PD+x5e3iVrH5N8bmsYtu7w8PDwjvL2g1NtU6o9rLebwYeUGg8PD2/Nmy2+7SI+GymY3ec1u/Dw8PBK3iaWnUWus9ZX25DDw8PDu83LF+KkoHaIqih3lrXg4eHh/RBvEyLk4wL5i8PDw8P7/by8xFnAusFE8xF4eHh4R3mzRXkT1yZ3bl9i3eXDw8PDG/FmTax2yGCGvDIogIeHhzfn/QVB1kEFOCKznAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/Spring MVC + Hibernate JPA + Bootstrap 搭建的博客系统/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Spring MVC + Hibernate JPA + Bootstrap 搭建的博客系统 Demo
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/28/java读取文件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java读取文件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -606,12 +439,30 @@ var _hmt = _hmt || [];
 
 
   
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <div class="duoshuo"></div>
   
 
+
+
+  <section id="comments">
+<!--高速版，加载速度快，使用前需测试页面的兼容性-->
+<div id="SOHUCS" sid="Java连接Oracle数据库的三种连接方式"  style="padding: 0px 30px 0px 46px;"></div>
+<script>
+  (function(){
+    var appid = 'cysWCg9Ij',
+    conf = '7f51baf245f3217589bb3b4ba8d8c691';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>
+  </section>
+  
 
           </div>
         </div>
@@ -640,8 +491,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -14,14 +14,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Zhisheng的博客</title>
+  <title>通过源码详解 Servlet | Zhisheng的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zhisheng的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Servlet 结构
+1、ServletServlet 该接口定义了5个方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过源码详解 Servlet">
+<meta property="og:url" content="http://yoursite.com/2017/07/09/servlet/index.html">
 <meta property="og:site_name" content="Zhisheng的博客">
+<meta property="og:description" content="Servlet 结构
+1、ServletServlet 该接口定义了5个方法。">
+<meta property="og:image" content="http://ohfk1r827.bkt.clouddn.com/servlet1.png">
+<meta property="og:image" content="http://ohfk1r827.bkt.clouddn.com/ServletRequest.png">
+<meta property="og:image" content="http://ohfk1r827.bkt.clouddn.com/ServletResponse.png">
+<meta property="og:image" content="http://ohfk1r827.bkt.clouddn.com/ServletContext.png">
+<meta property="og:image" content="http://ohfk1r827.bkt.clouddn.com/http-request-method.jpg">
+<meta property="og:updated_time" content="2017-07-09T05:54:51.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhisheng的博客">
+<meta name="twitter:title" content="通过源码详解 Servlet">
+<meta name="twitter:description" content="Servlet 结构
+1、ServletServlet 该接口定义了5个方法。">
+<meta name="twitter:image" content="http://ohfk1r827.bkt.clouddn.com/servlet1.png">
   
     <link rel="alternative" href="/atom.xml" title="Zhisheng的博客" type="application/atom+xml">
   
@@ -180,22 +193,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Elasticsearch-install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-servlet" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/Elasticsearch-install/">全文搜索引擎 Elasticsearch 集群搭建入门教程</a>
+    <h1 class="article-title" itemprop="name">
+      通过源码详解 Servlet
     </h1>
   
 
         
-        <a href="/2017/09/09/Elasticsearch-install/" class="archive-article-date">
-  	<time datetime="2017-09-09T03:56:42.374Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+        <a href="/2017/07/09/servlet/" class="archive-article-date">
+  	<time datetime="2017-07-09T05:47:19.553Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-09</time>
 </a>
         
       </header>
@@ -203,371 +214,162 @@ var _hmt = _hmt || [];
 
     <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet-结构"><span class="toc-number">1.</span> <span class="toc-text">Servlet 结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Servlet"><span class="toc-number">1.1.</span> <span class="toc-text">1、Servlet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、ServletConfig"><span class="toc-number">1.2.</span> <span class="toc-text">2、ServletConfig</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、GenericServlet-抽象类"><span class="toc-number">1.3.</span> <span class="toc-text">3、GenericServlet 抽象类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、HttpServlet-抽象类"><span class="toc-number">1.4.</span> <span class="toc-text">4、HttpServlet 抽象类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1、HTTP-请求方式"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1、HTTP 请求方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2、对应的服务方法："><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2、对应的服务方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3、Servlet-Service-方法详解"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3、Servlet   Service 方法详解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4、HttpServlet-service-方法详解"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.4、HttpServlet   service  方法详解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、Servlet-的多线程问题"><span class="toc-number">1.5.</span> <span class="toc-text">5、Servlet 的多线程问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
 <!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为 Apache 许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。基百科、Stack Overflow、Github 都采用它。</p>
-<p>本文从零开始，讲解如何使用 Elasticsearch 搭建自己的全文搜索引擎。每一步都有详细的说明，大家跟着做就能学会。<br>
-        
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Elasticsearch-analyzers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/07/Elasticsearch-analyzers/">Elasticsearch 默认分词器和中分分词器之间的比较及使用方法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/07/Elasticsearch-analyzers/" class="archive-article-date">
-  	<time datetime="2017-09-07T01:50:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>介绍：ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为Apache许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。</p>
-<p>Elasticsearch中，内置了很多分词器（analyzers）。下面来进行比较下系统默认分词器和常用的中文分词器之间的区别。<br>
-        
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-recommend-books" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/recommend-books/">那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/26/recommend-books/" class="archive-article-date">
-  	<time datetime="2017-08-26T05:38:47.267Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://ohfk1r827.bkt.clouddn.com/learn-2004897_960_720.png-1" alt=""><br>
-        
-          <a class="article-more-a" href="/2017/08/26/recommend-books/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/26/recommend-books/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Ubuntu-install-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/Ubuntu-install-Nginx/">Ubuntu16.10 安装 Nginx</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/Ubuntu-install-Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-18T05:52:20.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装-Nginx-依赖库"><a href="#安装-Nginx-依赖库" class="headerlink" title="安装 Nginx 依赖库"></a>安装 Nginx 依赖库</h2><h3 id="安装-gcc-g-的依赖库"><a href="#安装-gcc-g-的依赖库" class="headerlink" title="安装 gcc g++ 的依赖库"></a>安装 gcc g++ 的依赖库</h3><p>Ubuntu 平台使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install build-essential</div><div class="line">apt-get install libtool</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-most-success" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/most-success/">马云热血励志演讲《最伟大的成功》</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/11/most-success/" class="archive-article-date">
-  	<time datetime="2017-08-11T13:56:34.713Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当你乐观的时候，总是会有机会的。那么你可能要问了“机会在哪呢？”你可能没有特别想实现的事，没有迫切要成功的欲望，没有勇攀高峰的决心，没有水滴石穿的毅力，也没有一颗所向披靡的强大心脏。那么，让来自马云的这段演讲来告诉你，你有什么。你有年轻的身体，你有奇妙的想法，你有乐观的心态，你有无限的可能性。<br>
-        
-          <a class="article-more-a" href="/2017/08/11/most-success/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">励志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/11/most-success/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Nginx/">Nginx 基本知识快速入门</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-05T12:41:33.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是-Nginx？"><a href="#什么是-Nginx？" class="headerlink" title="什么是 Nginx？"></a>什么是 Nginx？</h2><p>Nginx 是一个高性能的 HTTP 和反向代理服务器，以高稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。</p>
-<h2 id="Nginx-特点"><a href="#Nginx-特点" class="headerlink" title="Nginx 特点"></a>Nginx 特点</h2><ul>
-<li>处理静态文件，索引文件以及自动索引；打开文件描述符缓冲．</li>
-<li>无缓存的反向代理加速，简单的负载均衡和容错．</li>
-<li>FastCGI，简单的负载均衡和容错．</li>
-<li>模块化的结构。包括 gzipping, byte ranges, chunked responses,以及 SSI-filter 等 filter。如果由 FastCGI 或其它代理服务器处理单页中存在的多个 SSI，则这项处理可以并行运行，而不需要相互等待。</li>
-<li>支持 SSL 和 TLSSNI．</li>
+        <h2 id="Servlet-结构"><a href="#Servlet-结构" class="headerlink" title="Servlet 结构"></a>Servlet 结构</h2><p><img src="http://ohfk1r827.bkt.clouddn.com/servlet1.png" alt="servlet1"></p>
+<h3 id="1、Servlet"><a href="#1、Servlet" class="headerlink" title="1、Servlet"></a>1、Servlet</h3><p>Servlet 该接口定义了5个方法。<br><a id="more"></a></p>
+<ul>
+<li>init()，初始化 servlet 对象，完成一些初始化工作。它是由 servlet 容器控制的，该方法只能被调用一次</li>
+<li>service()，接受客户端请求对象，执行业务操作，利用响应对象响应客户端请求。</li>
+<li>destroy()，当容器监测到一个servlet从服务中被移除时，容器调用该方法，释放资源，该方法只能被调用一次。</li>
+<li>getServletConfig()，ServletConfig 是容器向 servlet 传递参数的载体。</li>
+<li>getServletInfo()，获取 servlet 相关信息。</li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/08/05/Nginx/#more">more >></a>
-        
+<p>Servlet 的生命周期：</p>
+<blockquote>
+<p>1，初始化阶段  调用 init() 方法</p>
+<p>2，响应客户请求阶段　　调用 service() 方法</p>
+<p>3，终止阶段　　调用 destroy() 方法</p>
+</blockquote>
+<p>在 Servlet 接口中的五个方法中涉及的接口有三个：ServletConfig 、 ServletRequest、 ServletResponse</p>
+<p>这里先讲讲 ServletRequest 和 ServletResponse。</p>
+<p>1）ServletRequest  由 Servlet 容器来管理，当客户请求到来时，容器创建一个 ServletRequest 对象，封装请求数据，同时创建一个 ServletResponse 对象，封装响应数据。这两个对象将被容器作为 service（）方法的参数传递给 Servlet，Serlvet 利用 ServletRequest 对象获取客户端发来的请求数据，利用 ServletResponse 对象发送响应数据。</p>
+<p>下面是 ServletRequest  中所有的方法，根据方法名大概就可以猜到这些方法到底是干啥用的。</p>
+<p><img src="http://ohfk1r827.bkt.clouddn.com/ServletRequest.png" alt="ServletRequest"></p>
+<p>2）ServletResponse 发送响应数据</p>
+<p><img src="http://ohfk1r827.bkt.clouddn.com/ServletResponse.png" alt="ServletResponse"></p>
+<h3 id="2、ServletConfig"><a href="#2、ServletConfig" class="headerlink" title="2、ServletConfig"></a>2、ServletConfig</h3><p>ServletConfig 是容器向 servlet 传递参数的载体。</p>
+<p>ServletConfig的4个常用方法：</p>
+<p>1）public String getInitParameter（String name）：返回指定名称的初始化参数值；</p>
+<p>2）public Enumeration getInitParameterNames（）：返回一个包含所有初始化参数名的 Enumeration 对象；</p>
+<p>3）public String getServletName()：返回在 DD 文件中<code>&lt;servlet-name&gt;</code>元素指定的 Servlet 名称；</p>
+<p>4）public ServletContext getServletContext（）：返回该 Servlet 所在的上下文对象；</p>
+<p>这里详细讲下 ServletContext ：</p>
+<p><img src="http://ohfk1r827.bkt.clouddn.com/ServletContext.png" alt="ServletContext"></p>
+<p>Servlet 上下文对象（ServletContext）：每个Web应用程序在被启动时都会创建一个唯一的上下文对象，Servlet 可通过其获得 Web 应用程序的初始化参数或 Servlet 容器的版本等信息，也可被 Servlet 用来与其他 Servlet 共享数据。</p>
+<p>1、获得 ServletContext 应用：</p>
+<p>（1）、直接调用 getServletContext（）方法</p>
+<p>ServletContext context = getServletContext（）;</p>
+<p>（2）、使用 ServletConfig 应用，再调用它的 getServletContext（）方法</p>
+<p>ServletContext context = getServletConfig.getServletContext();</p>
+<p>2、获得应用程序的初始化参数：</p>
+<p>（1）、public String getInitParameter（String name）：返回指定参数名的字符串参数值，没有则返回 null；</p>
+<p>（2）、public Enumeration getInitParameterNames()：返回一个包含多有初始化参数名的 Enumeration 对象；</p>
+<p>3、通过 ServletContext 对象获得资源</p>
+<p>（1）、public URl getResource（String path）:返回由给定路径的资源的 URL 对象，以 “/” 开头，为相对路径，相对于Web 应用程序的文档根目录；</p>
+<p>（2）、public InputStream getResourceAsStream（String path）：从资源上获得一个 InputStream 对象，等价于getResource（path）.oprenStream();</p>
+<p>（3）、public String getRealPath(String path)：返回给定的虚拟路径的真实路径；</p>
+<p>4、登陆日志：使用 log（）方法可以将指定的消息写到服务器的日志文件中</p>
+<p>（1）、public void log（String msg）：参数 msg 为写入日志文件消息</p>
+<p>（2）、public void log（String msg，Throwable throwable）：将 msg 指定的消息和异常的栈跟踪信息写入日志文件</p>
+<p>5、使用 RequestDispatcher 实现请求转发</p>
+<p>（1）、RequestDispatcher getRequestDiapatcher(String path)：必须以 “/“ 开头相对于应用程序根目录，而ServletRequest 可以传递一个相对路径</p>
+<p>（2）、RequestDipatcher getNamedDiapatcher（String name）：参数 name 为一个命名的 Servlet 对象</p>
+<p>6、使用 ServletContext 对象存储数据</p>
+<p>（1）、public void serAttribute（String name，Object object）：将给定名称的属性值对象绑定到上下文对象上；</p>
+<p>（2）、public Object getAttribute（String name）：返回绑定到上下文对象的给定名称的属性值；</p>
+<p>（3）、public Enumeration getAttributeNames()：返回绑定到上下文对象上的所有属性名的 Enumeration 对象；</p>
+<p>（4）、public void removeAttribute（String name）：删除绑定到上下文对象指定名称的属性；</p>
+<p>ServletRequest 共享的对象仅在请求的生存周期中可以被访问；</p>
+<p>HttpSession 共享的对象仅在会话的生存周期中可以被访问；</p>
+<p>ServletContext 共享的对象在整个 Web 应用程序启动的生存周期中可以被访问；</p>
+<p>7、检索 Servlet 容器的信息</p>
+<p>（1）、public String getServletInfo()：返回 Servlet 所运行容器的名称和版本；</p>
+<p>（2）、public int getMajorVersion（）：返回容器所支持的 Servlet API 的主版本号；</p>
+<p>（3）、public int  getMinorVersion（）：返回容器所支持的 Servlet API 的次版本号；</p>
+<p>（4）、public String getServletContext（）：返回 ServletContext 对应的 web 应用程序名称 <code>&lt;display-name&gt;</code>元素定义的名称；</p>
+<h3 id="3、GenericServlet-抽象类"><a href="#3、GenericServlet-抽象类" class="headerlink" title="3、GenericServlet 抽象类"></a>3、GenericServlet 抽象类</h3><p>GenericServlet  定义了一个通用的，不依赖具体协议的 Servlet，它实现了 Servlet 接口和 ServletConfig 接口，它的方法在文章的第一张图就给出了。</p>
+<h3 id="4、HttpServlet-抽象类"><a href="#4、HttpServlet-抽象类" class="headerlink" title="4、HttpServlet 抽象类"></a>4、HttpServlet 抽象类</h3><h4 id="4-1、HTTP-请求方式"><a href="#4-1、HTTP-请求方式" class="headerlink" title="4.1、HTTP 请求方式"></a>4.1、HTTP 请求方式</h4><p><img src="http://ohfk1r827.bkt.clouddn.com/http-request-method.jpg" alt="http-request-method"></p>
+<ol>
+<li>GET : 获取由请求 URL 标识的资源</li>
+<li>POST : 向 Web 服务器发送无限制长度的数据</li>
+<li>PUT : 存储一个资源到请求的 URL</li>
+<li>DELETE : 删除由 URL 标识的资源</li>
+<li>HEAD : 返回 URL 标识的头信息</li>
+<li>OPTIONS : 返回服务器支持的 HTTP 方法</li>
+<li>TRACE : 返回 TRACE 请求附带的头字段</li>
+</ol>
+<h4 id="4-2、对应的服务方法："><a href="#4-2、对应的服务方法：" class="headerlink" title="4.2、对应的服务方法："></a>4.2、对应的服务方法：</h4><ol>
+<li>doGet() : 调用服务器的资源, 并将其作为响应返回给客户端.  doGet() 调用在 URL 里显示正在传送给 Servlet 的数据,这在系统的安全方面可能带来一些问题, 比如说, 用户登录时,  表单里的用户名和密码需要发送到服务器端, doGet() 调用会在浏览器的 URL 里显示用户名和密码.</li>
+<li>doPost() : 它用于把客户端的数据传给服务端, 使用它可以以隐藏方式给服务器端发送数据. Post 适合发送大量数据.</li>
+<li>doPut() : 调用和 doPost() 相似, 并且它允许客户端把真正的文件存放在服务器上, 而不仅仅是传送数据.</li>
+<li>doDelete() : 它允许客户端删除服务器端的文件或者 Web 页面．它的使用非常少．</li>
+<li>doHead() : 它用于处理客户端的 Head 调用,并且返回一个 response. 当客户端只需要响应的 Header 时,它就发出一个Header 请求.这种情况下客户端往往关心响应的长度和响应的 MIME 类型.</li>
+<li>doOptions(): 它用于处理客户端的 Options 调用,通过这个调用, 客户端可以获得此 Servlet 支持的方法.如果 Servlet 覆盖了 doPost() 方法, 那么将返回: Allow: POST, TRACE, OPTIONS, HEAD</li>
+<li>doTrace：处理 TRACE 请求</li>
+</ol>
+<h4 id="4-3、Servlet-Service-方法详解"><a href="#4-3、Servlet-Service-方法详解" class="headerlink" title="4.3、Servlet   Service 方法详解"></a>4.3、Servlet   Service 方法详解</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></div><div class="line">        <span class="keyword">throws</span> ServletException, IOException</div><div class="line">    &#123;</div><div class="line">        HttpServletRequest  request;</div><div class="line">        HttpServletResponse response;</div><div class="line">        <span class="comment">// 如果传入的 HTTP 请求和 HTTP 响应不是 HTTP 的领域模型，则抛出 Servlet 异常，这个异常会被 Servlet 容器所处理</span></div><div class="line">        <span class="keyword">if</span> (!(req <span class="keyword">instanceof</span> HttpServletRequest &amp;&amp;</div><div class="line">                res <span class="keyword">instanceof</span> HttpServletResponse)) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ServletException(<span class="string">"non-HTTP request or response"</span>);</div><div class="line">        &#125;</div><div class="line">		<span class="comment">// 既然是 HTTP 协议绑定的 Serlvet, 强制转换到 HTTP 的领域模型</span></div><div class="line">        request = (HttpServletRequest) req;</div><div class="line">        response = (HttpServletResponse) res;</div><div class="line">		<span class="comment">// 如果传入的请求和响应是预期的 HTTP 请求和 HTTP 响应，则调用 HttpServlet 的 service() 方法。</span></div><div class="line">        service(request, response);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="4-4、HttpServlet-service-方法详解"><a href="#4-4、HttpServlet-service-方法详解" class="headerlink" title="4.4、HttpServlet   service  方法详解"></a>4.4、HttpServlet   service  方法详解</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></div><div class="line">        <span class="keyword">throws</span> ServletException, IOException</div><div class="line">    &#123;</div><div class="line">    <span class="comment">// 从 HTTP 请求中取得这次请求所使用的 HTTT 方法</span></div><div class="line">        String method = req.getMethod();</div><div class="line">		<span class="comment">// 如果这次请求使用 GET 方法</span></div><div class="line">        <span class="keyword">if</span> (method.equals(METHOD_GET)) &#123;</div><div class="line">        	<span class="comment">// 取得这个 Servlet 的最后修改的时间</span></div><div class="line">            <span class="keyword">long</span> lastModified = getLastModified(req);</div><div class="line">            <span class="keyword">if</span> (lastModified == -<span class="number">1</span>) &#123;</div><div class="line">                <span class="comment">// servlet doesn't support if-modified-since, no reason</span></div><div class="line">                <span class="comment">// to go through further expensive logic</span></div><div class="line">                <span class="comment">//-1 代表这个 Servlet 不支持最后修改操作，直接调用 doGet() 进行处理 HTTP GET 请求</span></div><div class="line">                doGet(req, resp);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">            	<span class="comment">// 如果这个 Servlet 支持最后修改操作，取得请求头中包含的请求的最后修改时间</span></div><div class="line">                <span class="keyword">long</span> ifModifiedSince = req.getDateHeader(HEADER_IFMODSINCE);</div><div class="line">                <span class="keyword">if</span> (ifModifiedSince &lt; lastModified) &#123;</div><div class="line">                    <span class="comment">// If the servlet mod time is later, call doGet()</span></div><div class="line">                    <span class="comment">// Round down to the nearest second for a proper compare</span></div><div class="line">                    <span class="comment">// A ifModifiedSince of -1 will always be less</span></div><div class="line">                    <span class="comment">// 如果请求头中包含的修改时间早于这个 Servlet 的最后修改时间，说明这个 Servlet 自从客户上一次 HTTP 请求已经被修改了 , 设置最新修改时间到响应头中</span></div><div class="line">                    maybeSetLastModified(resp, lastModified);</div><div class="line">                    <span class="comment">// 调用 doGet 进行进行处理 HTTP GET 请求</span></div><div class="line">                    doGet(req, resp);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// 如果请求头中包含修改时间晚于这个 Servlet 的最后修改时间，说明这个 Servlet 自从请求的最后修改时间后没有更改过，这种情况下，仅仅返回一个 HTTP 响应状态 SC_NOT_MODIFIED</span></div><div class="line">                    resp.setStatus(HttpServletResponse.SC_NOT_MODIFIED);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_HEAD)) &#123;</div><div class="line">        <span class="comment">// 如果这次请求使用 HEAD 方法</span></div><div class="line">         <span class="comment">// 如果这个 Servlet 支持最后修改操作，则设置这个 Servlet 的最后修改时间到响应头中</span></div><div class="line">            <span class="keyword">long</span> lastModified = getLastModified(req);</div><div class="line">            maybeSetLastModified(resp, lastModified);</div><div class="line">            <span class="comment">// 和对 HTTP GET 方法处理不同的是，无论请求头中的修改时间是不是早于这个 Sevlet 的最后修改时间，都会发 HEAD 响应给客户，因为 HTTP HEAD 响应是用来查询 Servlet 头信息的操作</span></div><div class="line">            doHead(req, resp);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_POST)) &#123;</div><div class="line">        <span class="comment">// 如果这次请求使用 POST 方法</span></div><div class="line">            doPost(req, resp);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_PUT)) &#123;</div><div class="line">        <span class="comment">// 如果这次请求使用 PUT 方法</span></div><div class="line">            doPut(req, resp);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_DELETE)) &#123;</div><div class="line">        <span class="comment">// 如果这次请求使用 DELETE 方法</span></div><div class="line">            doDelete(req, resp);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_OPTIONS)) &#123;</div><div class="line">        <span class="comment">// 如果这次请求使用 OPTIONS 方法</span></div><div class="line">            doOptions(req,resp);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_TRACE)) &#123;</div><div class="line">        <span class="comment">// 如果这次请求使用 TRACE 方法</span></div><div class="line">            doTrace(req,resp);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// Note that this means NO servlet supports whatever</span></div><div class="line">            <span class="comment">// method was requested, anywhere on this server.</span></div><div class="line">			<span class="comment">// 如果这次请求是其他未知方法，返回错误代码 SC_NOT_IMPLEMENTED 给 HTTP 响应，并且显示一个错误消息，说明这个操作是没有实现的</span></div><div class="line">            String errMsg = lStrings.getString(<span class="string">"http.method_not_implemented"</span>);</div><div class="line">            Object[] errArgs = <span class="keyword">new</span> Object[<span class="number">1</span>];</div><div class="line">            errArgs[<span class="number">0</span>] = method;</div><div class="line">            errMsg = MessageFormat.format(errMsg, errArgs);</div><div class="line"></div><div class="line">            resp.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, errMsg);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="5、Servlet-的多线程问题"><a href="#5、Servlet-的多线程问题" class="headerlink" title="5、Servlet 的多线程问题"></a>5、Servlet 的多线程问题</h3><p>1、当涉及到 Servlet 需要共享资源是，需保证 Servlet 是线程安全的</p>
+<p>2、注意事项：</p>
+<p>（1）、用方法的局部变量保持请求中的专有数据；</p>
+<p>（2）、只用 Servlet 的成员变量来存放那些不会改变的数据；</p>
+<p>（3）、对可能被请求修改的成员变量同步（用 Synchronized 关键字修饰）；</p>
+<p>（4）、如果 Servlet 访问外部资源，那么需要同步访问这些资源；</p>
+<p>3、实现 SingleThreadModel 接口的 Servlet 在被多个客户请求时一个时刻只能有一个线程运行，不推荐使用。</p>
+<p>4、如果必须在 servlet 使用同步代码，应尽量在最小的范围上（代码块）进行同步，同步代码越少，Servlet 执行才能越好，避免对 doGet() 或 doPost() 方法同步。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>全文首先通过一张 Servlet 中的核心 Servlet 类图关系，了解了几种 Servlet 之间的关系及其内部方法。然后在分别介绍这几种 Servlet，通过分析部分重要方法的源码来了解，还介绍了 Servlet 中多线程的问题的解决方法。</p>
+<p>注：文章原创，首发于：<a href="http://www.54tianzhisheng.cn" target="_blank" rel="external">zhisheng 的博客</a>，文章可转载但请注明地址为：<a href="http://www.54tianzhisheng.cn/2017/07/09/servlet/" target="_blank" rel="external">http://www.54tianzhisheng.cn/2017/07/09/servlet/</a></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你支持我买服务器！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -578,7 +380,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
         		</li>
       		
 		</ul>
@@ -587,18 +393,83 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Nginx/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aQY7DIBAEwPz/097rSlHYbsDEWhUnyyGm7MNomOH1isf1a7zff5/z6f74adsGLi7uMvcajvGc5GXaV/o0BxcX9zz3U8SYu577HGMDLi7u87njNCVPiXBxcf8Hd5y+jF8v+S8uLu5zuHkKkqcpc9unbXs1XFzcBW5epbzv+pb6Li4u7hT3KkdeBp2b/8fquLi4R7h5QGnbJ21ALJq7uLi4R7h5LpGULZIFkl+LzQ8uLu5Wbl7UqINLUDat27G4uLhHuEmcawupeShsN0u4uLhnuMmD2qMV7ZamaOXi4uIe5+49hNHeiVbExcU9ws1LFXu3QO2xj49nRnBxcW/jJgeq2kB2RyjExcV9DjfHzT2nToZwcXEPclfyo8msKk6kin4LLi7uzdy8aZr/d6XtiouL+y1u21BpX2auJYOLi/stbrJd2dVkrdOattOCi4u7wL3KMdeazYNd0b3BxcW9jTvXUp0rebQtlqXgiIuLu8zNg1eOmCuzRt8VFxf3IDffFI0XyOe0ARQXF/fJ3LnmykrBZSmQ4eLiHuHeEeCKj4WLi3uQ2xZJV45ctIUSXFzc89y28ZkHrLksZcNxT1xc3HnuDxx9mnnZtvyDAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/07/14/Spring-MVC01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          看透 Spring MVC 源代码分析与实践 ——  网站基础知识
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/25/Velocity-foreach/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Velocity 循环指令一种好的解决方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -606,12 +477,30 @@ var _hmt = _hmt || [];
 
 
   
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <div class="duoshuo"></div>
   
 
+
+
+  <section id="comments">
+<!--高速版，加载速度快，使用前需测试页面的兼容性-->
+<div id="SOHUCS" sid="通过源码详解 Servlet"  style="padding: 0px 30px 0px 46px;"></div>
+<script>
+  (function(){
+    var appid = 'cysWCg9Ij',
+    conf = '7f51baf245f3217589bb3b4ba8d8c691';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>
+  </section>
+  
 
           </div>
         </div>
@@ -640,8 +529,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

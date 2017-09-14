@@ -14,14 +14,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Zhisheng的博客</title>
+  <title>JVM性能调优监控工具jps、jstack、jmap、jhat、jstat等使用详解 | Zhisheng的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zhisheng的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="javap 和  javac
+javac -verbose 类名.java
+java -verbose 类名
+javap -c 类名
+javap -verbose 类名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM性能调优监控工具jps、jstack、jmap、jhat、jstat等使用详解">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/JVM性能调优监控工具jps、jstack、jmap、jhat、jstat等使用详解/index.html">
 <meta property="og:site_name" content="Zhisheng的博客">
+<meta property="og:description" content="javap 和  javac
+javac -verbose 类名.java
+java -verbose 类名
+javap -c 类名
+javap -verbose 类名">
+<meta property="og:image" content="http://img.blog.csdn.net/20170312201809429?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170312201840055?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-06-13T10:43:00.447Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhisheng的博客">
+<meta name="twitter:title" content="JVM性能调优监控工具jps、jstack、jmap、jhat、jstat等使用详解">
+<meta name="twitter:description" content="javap 和  javac
+javac -verbose 类名.java
+java -verbose 类名
+javap -c 类名
+javap -verbose 类名">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170312201809429?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Zhisheng的博客" type="application/atom+xml">
   
@@ -180,22 +199,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Elasticsearch-install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-JVM性能调优监控工具jps、jstack、jmap、jhat、jstat等使用详解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/Elasticsearch-install/">全文搜索引擎 Elasticsearch 集群搭建入门教程</a>
+    <h1 class="article-title" itemprop="name">
+      JVM性能调优监控工具jps、jstack、jmap、jhat、jstat等使用详解
     </h1>
   
 
         
-        <a href="/2017/09/09/Elasticsearch-install/" class="archive-article-date">
-  	<time datetime="2017-09-09T03:56:42.374Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+        <a href="/2017/03/28/JVM性能调优监控工具jps、jstack、jmap、jhat、jstat等使用详解/" class="archive-article-date">
+  	<time datetime="2017-03-28T10:40:34.793Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
 </a>
         
       </header>
@@ -203,371 +220,320 @@ var _hmt = _hmt || [];
 
     <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#javap-和-javac"><span class="toc-number">1.</span> <span class="toc-text">javap 和  javac</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#javap-help"><span class="toc-number">1.1.</span> <span class="toc-text">javap -help</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#javac-help"><span class="toc-number">1.2.</span> <span class="toc-text">javac -help</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jps"><span class="toc-number">2.</span> <span class="toc-text">jps</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jps-help"><span class="toc-number">2.1.</span> <span class="toc-text">jps -help</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jstack"><span class="toc-number">3.</span> <span class="toc-text">jstack</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jstack-help"><span class="toc-number">3.1.</span> <span class="toc-text">jstack -help</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jstat"><span class="toc-number">4.</span> <span class="toc-text">jstat</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考文章"><span class="toc-number">4.1.</span> <span class="toc-text">参考文章</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jmap"><span class="toc-number">5.</span> <span class="toc-text">jmap</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jmap-help"><span class="toc-number">5.1.</span> <span class="toc-text">jmap -help</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jinfo"><span class="toc-number">6.</span> <span class="toc-text">jinfo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jconsole"><span class="toc-number">7.</span> <span class="toc-text">jconsole</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jvisualvm"><span class="toc-number">8.</span> <span class="toc-text">jvisualvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jhat"><span class="toc-number">9.</span> <span class="toc-text">jhat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jdb"><span class="toc-number">10.</span> <span class="toc-text">jdb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jstatd"><span class="toc-number">11.</span> <span class="toc-text">jstatd</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
 <!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为 Apache 许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。基百科、Stack Overflow、Github 都采用它。</p>
-<p>本文从零开始，讲解如何使用 Elasticsearch 搭建自己的全文搜索引擎。每一步都有详细的说明，大家跟着做就能学会。<br>
-        
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/Elasticsearch-install/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Elasticsearch-analyzers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/07/Elasticsearch-analyzers/">Elasticsearch 默认分词器和中分分词器之间的比较及使用方法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/07/Elasticsearch-analyzers/" class="archive-article-date">
-  	<time datetime="2017-09-07T01:50:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>介绍：ElasticSearch 是一个基于 Lucene 的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于 RESTful web 接口。Elasticsearch 是用 Java 开发的，并作为Apache许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。</p>
-<p>Elasticsearch中，内置了很多分词器（analyzers）。下面来进行比较下系统默认分词器和常用的中文分词器之间的区别。<br>
-        
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/07/Elasticsearch-analyzers/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-recommend-books" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/recommend-books/">那些年我看过的书 —— 致敬我的大学生活 —— Say Good Bye ！</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/26/recommend-books/" class="archive-article-date">
-  	<time datetime="2017-08-26T05:38:47.267Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://ohfk1r827.bkt.clouddn.com/learn-2004897_960_720.png-1" alt=""><br>
-        
-          <a class="article-more-a" href="/2017/08/26/recommend-books/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/26/recommend-books/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Ubuntu-install-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/Ubuntu-install-Nginx/">Ubuntu16.10 安装 Nginx</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/Ubuntu-install-Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-18T05:52:20.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装-Nginx-依赖库"><a href="#安装-Nginx-依赖库" class="headerlink" title="安装 Nginx 依赖库"></a>安装 Nginx 依赖库</h2><h3 id="安装-gcc-g-的依赖库"><a href="#安装-gcc-g-的依赖库" class="headerlink" title="安装 gcc g++ 的依赖库"></a>安装 gcc g++ 的依赖库</h3><p>Ubuntu 平台使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install build-essential</div><div class="line">apt-get install libtool</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/18/Ubuntu-install-Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-most-success" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/most-success/">马云热血励志演讲《最伟大的成功》</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/11/most-success/" class="archive-article-date">
-  	<time datetime="2017-08-11T13:56:34.713Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当你乐观的时候，总是会有机会的。那么你可能要问了“机会在哪呢？”你可能没有特别想实现的事，没有迫切要成功的欲望，没有勇攀高峰的决心，没有水滴石穿的毅力，也没有一颗所向披靡的强大心脏。那么，让来自马云的这段演讲来告诉你，你有什么。你有年轻的身体，你有奇妙的想法，你有乐观的心态，你有无限的可能性。<br>
-        
-          <a class="article-more-a" href="/2017/08/11/most-success/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">励志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/11/most-success/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Nginx/">Nginx 基本知识快速入门</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Nginx/" class="archive-article-date">
-  	<time datetime="2017-08-05T12:41:33.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是-Nginx？"><a href="#什么是-Nginx？" class="headerlink" title="什么是 Nginx？"></a>什么是 Nginx？</h2><p>Nginx 是一个高性能的 HTTP 和反向代理服务器，以高稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。</p>
-<h2 id="Nginx-特点"><a href="#Nginx-特点" class="headerlink" title="Nginx 特点"></a>Nginx 特点</h2><ul>
-<li>处理静态文件，索引文件以及自动索引；打开文件描述符缓冲．</li>
-<li>无缓存的反向代理加速，简单的负载均衡和容错．</li>
-<li>FastCGI，简单的负载均衡和容错．</li>
-<li>模块化的结构。包括 gzipping, byte ranges, chunked responses,以及 SSI-filter 等 filter。如果由 FastCGI 或其它代理服务器处理单页中存在的多个 SSI，则这项处理可以并行运行，而不需要相互等待。</li>
-<li>支持 SSL 和 TLSSNI．</li>
+        <h3 id="javap-和-javac"><a href="#javap-和-javac" class="headerlink" title="javap 和  javac"></a>javap 和  javac</h3><ul>
+<li>javac -verbose 类名.java</li>
+<li>java -verbose 类名</li>
+<li>javap -c 类名</li>
+<li>javap -verbose 类名</li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/08/05/Nginx/#more">more >></a>
-        
+<hr>
+<a id="more"></a>
+<h4 id="javap-help"><a href="#javap-help" class="headerlink" title="javap -help"></a>javap -help</h4><p>用法: javap <options> <classes></classes></options></p>
+<p>其中, 可能的选项包括:</p>
+<p>  -help  –help  -?        输出此用法消息</p>
+<p>  -version                 版本信息</p>
+<p>  -v  -verbose             输出附加信息</p>
+<p>  -l                       输出行号和本地变量表</p>
+<p>  -public                  仅显示公共类和成员</p>
+<p>  -protected               显示受保护的/公共类和成员</p>
+<p>  -package                 显示程序包/受保护的/公共类<br>                           和成员 (默认)</p>
+<p>  -p  -private             显示所有类和成员</p>
+<p>  -c                       对代码进行反汇编</p>
+<p>  -s                       输出内部类型签名</p>
+<p>  -sysinfo                 显示正在处理的类的<br>                           系统信息 (路径, 大小, 日期, MD5 散列)</p>
+<p>  -constants               显示最终常量</p>
+<p>  -classpath <path></path>        指定查找用户类文件的位置</p>
+<p>  -cp <path></path>               指定查找用户类文件的位置</p>
+<p>  -bootclasspath <path></path>    覆盖引导类文件的位置</p>
+<hr>
+<h4 id="javac-help"><a href="#javac-help" class="headerlink" title="javac -help"></a>javac -help</h4><p>用法: javac <options> <source files=""></options></p>
+<p>其中, 可能的选项包括:</p>
+<p>  -g                         生成所有调试信息</p>
+<p>  -g:none                    不生成任何调试信息</p>
+<p>  -g:{lines,vars,source}     只生成某些调试信息</p>
+<p>  -nowarn                    不生成任何警告</p>
+<p>  -verbose                   输出有关编译器正在执行的操作的消息</p>
+<p>  -deprecation               输出使用已过时的 API 的源位置</p>
+<p>  -classpath &lt;路径&gt;            指定查找用户类文件和注释处理程序的位置</p>
+<p>  -cp &lt;路径&gt;                   指定查找用户类文件和注释处理程序的位置</p>
+<p>  -sourcepath &lt;路径&gt;           指定查找输入源文件的位置</p>
+<p>  -bootclasspath &lt;路径&gt;        覆盖引导类文件的位置</p>
+<p>  -extdirs &lt;目录&gt;              覆盖所安装扩展的位置</p>
+<p>  -endorseddirs &lt;目录&gt;         覆盖签名的标准路径的位置</p>
+<p>  -proc:{none,only}          控制是否执行注释处理和/或编译。</p>
+<p>  -processor <class1>[,<class2>,<class3>…] 要运行的注释处理程序的名称; 绕过默认的搜索进程</class3></class2></class1></p>
+<p>  -processorpath &lt;路径&gt;        指定查找注释处理程序的位置</p>
+<p>  -parameters                生成元数据以用于方法参数的反射</p>
+<p>  -d &lt;目录&gt;                    指定放置生成的类文件的位置</p>
+<p>  -s &lt;目录&gt;                    指定放置生成的源文件的位置</p>
+<p>  -h &lt;目录&gt;                    指定放置生成的本机标头文件的位置</p>
+<p>  -implicit:{none,class}     指定是否为隐式引用文件生成类文件</p>
+<p>  -encoding &lt;编码&gt;             指定源文件使用的字符编码</p>
+<p>  -source &lt;发行版&gt;              提供与指定发行版的源兼容性</p>
+<p>  -target &lt;发行版&gt;              生成特定 VM 版本的类文件</p>
+<p>  -profile &lt;配置文件&gt;            请确保使用的 API 在指定的配置文件中可用</p>
+<p>  -version                   版本信息</p>
+<p>  -help                      输出标准选项的提要</p>
+<p>  -A关键字[=值]                  传递给注释处理程序的选项</p>
+<p>  -X                         输出非标准选项的提要</p>
+<p>  -J&lt;标记&gt;                     直接将 &lt;标记&gt; 传递给运行时系统</p>
+<p>  -Werror                    出现警告时终止编译</p>
+<p>  @&lt;文件名&gt;                     从文件读取选项和文件名</p>
+<hr>
+<h3 id="jps"><a href="#jps" class="headerlink" title="jps"></a>jps</h3><p>用来查看基于HotSpot的JVM里面中，所有具有访问权限的Java进程的具体状态, 包括进程ID，进程启动的路径及启动参数等等，与unix上的ps类似，只不过jps是用来显示java进程，可以把jps理解为ps的一个子集。</p>
+<p>使用jps时，如果没有指定hostid，它只会显示本地环境中所有的Java进程；如果指定了hostid，它就会显示指定hostid上面的java进程，不过这需要远程服务上开启了jstatd服务。</p>
+<h4 id="jps-help"><a href="#jps-help" class="headerlink" title="jps -help"></a>jps -help</h4><p>usage: jps [-help]</p>
+<pre><code>jps [-q] [-mlvV] [&lt;hostid&gt;]
+</code></pre><p>Definitions:</p>
+<pre><code>&lt;hostid&gt;:  &lt;hostname&gt;[:&lt;port&gt;]
+</code></pre><p>-q：忽略输出的类名、Jar名以及传递给main方法的参数，只输出pid。</p>
+<p>-m：输出传递给main方法的参数，如果是内嵌的JVM则输出为null。</p>
+<p>-l：输出完全的包名，应用主类名，jar的完全路径名</p>
+<p>-v：输出传给jvm的参数</p>
+<p>-V：输出通过标记的文件传递给JVM的参数（.hotspotrc文件，或者是通过参数-XX:Flags=<filename>指定的文件）。</filename></p>
+<p>-J  用于传递jvm选项到由javac调用的java加载器中，例如，“-J-Xms48m”将把启动内存设置为48M，使用-J选项可以非常方便的向基于Java的开发的底层虚拟机应用程序传递参数。</p>
+<hr>
+<h3 id="jstack"><a href="#jstack" class="headerlink" title="jstack"></a>jstack</h3><p>jstack用于打印出给定的java进程ID或core file或远程调试服务的Java堆栈信息，如果是在64位机器上，需要指定选项”-J-d64”，Windows的jstack使用方式只支持以下的这种方式：</p>
+<blockquote>
+<p>jstack [-l] pid</p>
+</blockquote>
+<p>如果java程序崩溃生成core文件，jstack工具可以用来获得core文件的java stack和native stack的信息，从而可以轻松地知道java程序是如何崩溃和在程序何处发生问题。另外，jstack工具还可以附属到正在运行的java程序中，看到当时运行的java程序的java stack和native stack的信息, 如果现在运行的java程序呈现hung的状态，jstack是非常有用的。</p>
+<h4 id="jstack-help"><a href="#jstack-help" class="headerlink" title="jstack -help"></a>jstack -help</h4><p>Usage:</p>
+<pre><code>jstack [-l] &lt;pid&gt;
+    (to connect to running process)
+jstack -F [-m] [-l] &lt;pid&gt;
+    (to connect to a hung process)
+jstack [-m] [-l] &lt;executable&gt; &lt;core&gt;
+    (to connect to a core file)
+jstack [-m] [-l] [server_id@]&lt;remote server IP or hostname&gt;
+    (to connect to a remote debug server)
+</code></pre><p>Options:</p>
+<pre><code>-F  to force a thread dump. Use when jstack &lt;pid&gt; does not respond (process is hung)(当’jstack [-l] pid’没有相应的时候强制打印栈信息)
+-m  to print both java and native frames (mixed mode)(打印java和native c/c++框架的所有栈信息.)
+-l  long listing. Prints additional information about locks (长列表. 打印关于锁的附加信息,例如属于java.util.concurrent的ownable synchronizers列表.)
+-h  or -help to print this help message (打印帮助信息)
+</code></pre><hr>
+<h3 id="jstat"><a href="#jstat" class="headerlink" title="jstat"></a>jstat</h3><p>Jstat 用于监控基于HotSpot的JVM，对其堆的使用情况进行实时的命令行的统计，使用jstat我们可以对指定的JVM做如下监控：</p>
+<ul>
+<li>类的加载及卸载情况</li>
+<li>查看新生代、老生代及持久代的容量及使用情况</li>
+<li>查看新生代、老生代及持久代的垃圾收集情况，包括垃圾回收的次数及垃圾回收所占用的时间</li>
+<li>查看新生代中Eden区及Survior区中容量及分配情况等</li>
+</ul>
+<p>jstat -help</p>
+<p>Usage:</p>
+<pre><code>jstat -help|-options
+
+jstat -&lt;option&gt; [-t] [-h&lt;lines&gt;] &lt;vmid&gt; [&lt;interval&gt; [&lt;count&gt;]]
+</code></pre><p>Definitions:<br>&gt;</p>
+<blockquote>
+<p>  <option>      An option reported by the -options option</option></p>
+<p>  <vmid>        Virtual Machine Identifier. A vmid takes<br> the following form:<br>                     <lvmid>[@<hostname>[:<port>]]<br>                Where <lvmid> is the local vm identifier for the target<br>                Java virtual machine, typically a process id; <hostname> is<br>                the name of the host running the target Java virtual machine;<br>                and <port> is the port number for the rmiregistry on the<br>                target host. See the jvmstat documentation for a more complete<br>                description of the Virtual Machine Identifier.</port></hostname></lvmid></port></hostname></lvmid></vmid></p>
+<p>  <lines>       Number of samples between header lines.</lines></p>
+<p>  <interval>    Sampling interval. The following forms are allowed:<br>                    <n>[“ms”|”s”]<br>                Where <n> is an integer and the suffix specifies the units as<br>                milliseconds(“ms”) or seconds(“s”). The default units are “ms”.</n></n></interval></p>
+<p>  <count>       Number of samples to take before terminating.</count></p>
+<p>  -J<flag>      Pass <flag> directly to the runtime system.</flag></flag></p>
+</blockquote>
+<h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><p>1、<a href="http://blog.csdn.net/zhaozheng7758/article/details/8623549" target="_blank" rel="external">jstat命令详解</a></p>
+<p>2、<a href="http://blog.csdn.net/fenglibing/article/details/6411951" target="_blank" rel="external">jstat命令(Java Virtual Machine Statistics Monitoring Tool)</a></p>
+<p>3、<a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/share/jstat.html#class_option" target="_blank" rel="external">http://docs.oracle.com/javase/1.5.0/docs/tooldocs/share/jstat.html#class_option</a></p>
+<hr>
+<h3 id="jmap"><a href="#jmap" class="headerlink" title="jmap"></a>jmap</h3><p>打印出某个java进程（使用pid）内存内的，所有‘对象’的情况（如：产生那些对象，及其数量）。</p>
+<p>可以输出所有内存中对象的工具，甚至可以将VM 中的heap，以二进制输出成文本。使用方法</p>
+<blockquote>
+<p>jmap -histo pid</p>
+</blockquote>
+<p>如果连用SHELL</p>
+<blockquote>
+<p>jmap -histo pid&gt;a.log</p>
+</blockquote>
+<p>可以将其保存到文本中去，在一段时间后，使用文本对比工具，可以对比出GC回收了哪些对象。</p>
+<blockquote>
+<p>jmap -dump:format=b,file=outfile 3024</p>
+</blockquote>
+<p>可以将3024进程的内存heap输出出来到outfile文件里，再配合MAT（内存分析工具(Memory Analysis Tool），使用参见：<a href="http://blog.csdn.net/fenglibing/archive/2011/04/02/6298326.aspx" target="_blank" rel="external">http://blog.csdn.net/fenglibing/archive/2011/04/02/6298326.aspx</a>）或与jhat (Java Heap Analysis Tool)一起使用，能够以图像的形式直观的展示当前内存是否有问题。</p>
+<p>64位机上使用需要使用如下方式：</p>
+<blockquote>
+<p>jmap -J-d64 -heap pid</p>
+</blockquote>
+<h4 id="jmap-help"><a href="#jmap-help" class="headerlink" title="jmap -help"></a>jmap -help</h4><p>Usage:</p>
+<pre><code>jmap [option] &lt;pid&gt;
+    (to connect to running process)
+jmap [option] &lt;executable &lt;core&gt;
+    (to connect to a core file)
+jmap [option] [server_id@]&lt;remote server IP or hostname&gt;
+    (to connect to remote debug server)
+</code></pre><p>where <option> is one of:</option></p>
+<pre><code>&lt;none&gt;               to print same info as Solaris pmap
+-heap                to print java heap summary
+-histo[:live]        to print histogram of java object heap; if the &quot;live&quot;
+                     suboption is specified, only count live objects
+-clstats             to print class loader statistics
+-finalizerinfo       to print information on objects awaiting finalization
+-dump:&lt;dump-options&gt; to dump java heap in hprof binary format
+                     dump-options:
+                       live         dump only live objects; if not specified,
+                                    all objects in the heap are dumped.
+                       format=b     binary format
+                       file=&lt;file&gt;  dump heap to &lt;file&gt;
+                     Example: jmap -dump:live,format=b,file=heap.bin &lt;pid&gt;
+-F                   force. Use with -dump:&lt;dump-options&gt; &lt;pid&gt; or -histo
+                     to force a heap dump or histogram when &lt;pid&gt; does not
+                     respond. The &quot;live&quot; suboption is not supported
+                     in this mode.
+-h | -help           to print this help message
+-J&lt;flag&gt;             to pass &lt;flag&gt; directly to the runtime system
+</code></pre><p>参数说明</p>
+<p>1)、options：</p>
+<p>executable Java executable from which the core dump was produced.<br>(可能是产生core dump的java可执行程序)</p>
+<p>core 将被打印信息的core dump文件</p>
+<p>remote-hostname-or-IP 远程debug服务的主机名或ip</p>
+<p>server-id 唯一id,假如一台主机上多个远程debug服务</p>
+<p>2）、基本参数：</p>
+<p>-dump:[live,]format=b,file=<filename> 使用hprof二进制形式,输出jvm的heap内容到文件=. live子选项是可选的，假如指定live选项,那么只输出活的对象到文件.</filename></p>
+<p>-finalizerinfo 打印正等候回收的对象的信息.</p>
+<p>-heap 打印heap的概要信息，GC使用的算法，heap的配置及wise heap的使用情况.</p>
+<p>-histo[:live] 打印每个class的实例数目,内存占用,类全名信息. VM的内部类名字开头会加上前缀”*”. 如果live子参数加上后,只统计活的对象数量.</p>
+<p>-permstat 打印classload和jvm heap长久层的信息. 包含每个classloader的名字,活泼性,地址,父classloader和加载的class数量. 另外,内部String的数量和占用内存数也会打印出来.</p>
+<p>-F 强迫.在pid没有相应的时候使用-dump或者-histo参数. 在这个模式下,live子参数无效.</p>
+<p>-h | -help 打印辅助信息</p>
+<p>-J 传递参数给jmap启动的jvm.</p>
+<p>pid 需要被打印配相信息的java进程id,创业与打工的区别 - 博文预览,可以用jps查问.</p>
+<hr>
+<h3 id="jinfo"><a href="#jinfo" class="headerlink" title="jinfo"></a>jinfo</h3><p>jinfo 可以输出并修改运行时的java 进程的opts。</p>
+<p>用处比较简单，用于输出JAVA系统参数及命令行参数。</p>
+<p>用法是 <code>jinfo -opt  pid</code></p>
+<p>如：查看2788的MaxPerm大小可以用  jinfo -flag MaxPermSize 2788。</p>
+<p>jinfo -help</p>
+<p>Usage:</p>
+<pre><code>jinfo [option] &lt;pid&gt;
+    (to connect to running process)
+jinfo [option] &lt;executable &lt;core&gt;
+    (to connect to a core file)
+jinfo [option] [server_id@]&lt;remote server IP or hostname&gt;
+    (to connect to remote debug server)
+</code></pre><p>where <option> is one of:</option></p>
+<pre><code>-flag &lt;name&gt;         to print the value of the named VM flag
+-flag [+|-]&lt;name&gt;    to enable or disable the named VM flag
+-flag &lt;name&gt;=&lt;value&gt; to set the named VM flag to the given value
+-flags               to print VM flags
+-sysprops            to print Java system properties
+&lt;no option&gt;          to print both of the above
+-h | -help           to print this help message
+</code></pre><hr>
+<h3 id="jconsole"><a href="#jconsole" class="headerlink" title="jconsole"></a>jconsole</h3><p>一个java GUI监视工具，可以以图表化的形式显示各种数据。并可通过远程连接监视远程的服务器VM。用java写的GUI程序，用来监控VM，并可监控远程的VM，非常易用，而且功能非常强。命令行里打 jconsole，选则进程就可以了。</p>
+<p>需要注意的就是在运行jconsole之前，必须要先设置环境变量DISPLAY，否则会报错误，Linux下设置环境变量如下：</p>
+<blockquote>
+<p>export DISPLAY=:0.0</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20170312201809429?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>可以这里选择查看本地进程的状况，还是远程进程的状况</p>
+<p><img src="http://img.blog.csdn.net/20170312201840055?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHpzXzEwNDEyMTgxMjk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>通过这张图可以看到内存、线程、类及CPU使用的一些情况。</p>
+<hr>
+<h3 id="jvisualvm"><a href="#jvisualvm" class="headerlink" title="jvisualvm"></a>jvisualvm</h3><p>参考文章：</p>
+<p><a href="http://blog.csdn.net/tzs_1041218129/article/details/59165488" target="_blank" rel="external">程序员必备利器—Java程序性能分析工具Java VisualVM（Visual GC）</a></p>
+<hr>
+<h3 id="jhat"><a href="#jhat" class="headerlink" title="jhat"></a>jhat</h3><p>用于对JAVA heap进行离线分析的工具，他可以对不同虚拟机中导出的heap信息文件进行分析，如Linux上导出的文件可以拿到WINDOWS上进行分析，可以查找诸如内存方面的问题，使用方式可以查看这篇文章：</p>
+<p><a href="http://blog.csdn.net/gtuu0123/archive/2010/11/27/6039474.aspx" target="_blank" rel="external">jhat命令</a></p>
+<p>不过jhat和MAT比较起来，就没有MAT那么直观了，MAT是以图形界面的方式展现结果，MAT的使用方式可以参看文章：</p>
+<p><a href="http://blog.csdn.net/fenglibing/archive/2011/04/02/6298326.aspx" target="_blank" rel="external">MAT(Memory Analyzer Tool)工具入门介绍</a></p>
+<p>Usage:<br>jhat [-stack <bool>] [-refs <bool>] [-port <port>] [-baseline <file>] [-debug <int>] [-version] [-h|-help] <file></file></int></file></port></bool></bool></p>
+<pre><code>-J&lt;flag&gt;          Pass &lt;flag&gt; directly to the runtime system. For
+                  example, -J-mx512m to use a maximum heap size of 512MB
+-stack false:     Turn off tracking object allocation call stack.
+-refs false:      Turn off tracking of references to objects
+-port &lt;port&gt;:     Set the port for the HTTP server.  Defaults to 7000
+-exclude &lt;file&gt;:  Specify a file that lists data members that should
+                  be excluded from the reachableFrom query.
+-baseline &lt;file&gt;: Specify a baseline object dump.  Objects in
+                  both heap dumps with the same ID and same class will
+                  be marked as not being &quot;new&quot;.
+-debug &lt;int&gt;:     Set debug level.
+                    0:  No debug output
+                    1:  Debug hprof file parsing
+                    2:  Debug hprof file parsing, no server
+-version          Report version number
+-h|-help          Print this help and exit
+&lt;file&gt;            The file to read
+</code></pre><hr>
+<h3 id="jdb"><a href="#jdb" class="headerlink" title="jdb"></a>jdb</h3><p>用来对core文件和正在运行的Java进程进行实时地调试，里面包含了丰富的命令帮助您进行调试，它的功能和Sun studio里面所带的dbx非常相似，但 jdb是专门用来针对Java应用程序的。</p>
+<hr>
+<h3 id="jstatd"><a href="#jstatd" class="headerlink" title="jstatd"></a>jstatd</h3><p>jstatd是一个基于RMI（Remove Method Invocation）的服务程序，它用于监控基于HotSpot的JVM中资源的创建及销毁，并且提供了一个远程接口允许远程的监控工具连接到本地的JVM执行命令。</p>
+<p>jstatd是基于RMI的，所以在运行jstatd的服务器上必须存在RMI注册中心，如果没有通过选项”-p port”指定要连接的端口，jstatd会尝试连接RMI注册中心的默认端口。</p>
+<p>用法：</p>
+<blockquote>
+<p>jstatd [-nr] [-p port] [-n rminame]</p>
+</blockquote>
+<p>-nr 如果RMI注册中心没有找到，不会创建一个内部的RMI注册中心。</p>
+<p>-p port RMI注册中心的端口号，默认为1099。</p>
+<p>-n rminame 默认为JStatRemoteHost；如果同一台主机上同时运行了多个jstatd服务，rminame可以用于唯一确定一个jstatd服务；这里需要注意一下，如果开启了这个选项，那么监控客户端远程连接时，必须同时指定hostid及vmid，才可以唯一确定要连接的服务，这个可以参看jps章节中列出远程服务器上Java进程的示例。</p>
+<p>-J 用于传递jvm选项到由javac调用的java加载器中，例如，“-J-Xms48m”将把启动内存设置为48M，使用-J选项可以非常方便的向基于Java的开发的底层虚拟机应用程序传递参数。</p>
+<hr>
+<p>参考文章</p>
+<p><a href="http://blog.csdn.net/fenglibing/article/details/6411999" target="_blank" rel="external">JDK内置工具使用</a></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你支持我买服务器！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -578,7 +544,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">性能调优工具</a>
         		</li>
       		
 		</ul>
@@ -587,18 +557,83 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Nginx/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD9klEQVR42u3ay27bUAwE0Pz/T7toVgEKyTPkldsCR6sgUfQ4XtAk5+srPl7fR/6bP3/+edxfIf/9/Tn3568OHDhw4MARvOrV8fQrJfdN7nX1tPk74sCBAweOsxz3xfX+nPtHmdWy9l4JR/IFAgcOHDhwfJKjbdv2TWDy8m1LiQMHDhw4/mWO1Y1Ho8m8POPAgQMHjr/LkQ/pZqU3X0flJfwVHA/OSnHgwIEDx/v5W1Hq/q+fH8x34MCBAweOuMRuCnDeIrZt2Ob8N2+EAwcOHDjWHLO2qm292pZp1tQdCzrgwIEDB44Fx6xwng1D5K8xi1DksTkcOHDgwLHnaF+yZWpx9zO6ljKiwYEDBw4cMce+sOXRgTbEMGsC888/mpXiwIEDB46Soy2BedBh1hDm5TZpAlflHwcOHDhwjDja0tXG0ZKBYNs9tUuvomzjwIEDB45DHG3JzEMP7aJrFkpoW8rLjw0HDhw4cDzAka//22XPrDzvB4hFG4kDBw4cONYcm/DBLCRXpCpGC7CW4HJKigMHDhw41hz5yid/pXY4OPsSsB9fXo4IceDAgQPHiGM2wtsP4/JB4dkIxYGmDgcOHDhw3GbDNhCbBqyNU7Q/Jx9A/b0ABw4cOHAEHO1L5kO3duHUvkD7tPUtceDAgQPHiCNZEbWro/acdsW1aRQv/4oDBw4cOB7g2IQJNguhsxGH2agRBw4cOHDsOZKxYPKqeVitvX4+UmyL8XDzhgMHDhw44pqymaHlbdtscNnGGlYjURw4cODA8cB2KQ/D5Tc4FjuIC/nmfBw4cODAMTs/eax82Jf3QTnoJrqX/y8OHDhw4DjFMVz8B4/VLpyS6+9XShElDhw4cOBYcMyKVt5cJf1iW9RnIbmoGOPAgQMHjjXHJhAwSwK05XkTZZgB4cCBAweOPUfSOM0WUTOy2ZmzK7+ZmOLAgQMHjgXHbHmTL6VmUYP8yvsQBg4cOHDg2HPswwF5XGAzqouCCPEXheIbBw4cOHDgKDnyhc2+kUtGeG2QIsfKnwoHDhw4cGw4ktfLW7J2SNeul2aIBR8OHDhw4DjE0a5z8iXTrPK3zWG+uIq+ZeDAgQMHjgXHEyO5fUyhDbrNCvybzCAOHDhw4Bg9yas8NgW7Hf/t5531igsHDhw4cKw5ZmVpFinIX+lUXK9tMnHgwIEDxymOpLjm5+Tjufxem8Jc/xUHDhw4cBziyIvrJuK2GeGdasnefJA4cODAgePjHO3Kqu2S8msmoYd6cIkDBw4cOD7IsVkCtcPBNiRxf4XiaXHgwIEDxyGOU8PB2fBuE0fIrxP9FQcOHDhwrDlmQ7pZ4OC5krlp8w7kO3DgwIEDx+/jFyLT8VwAlc/3AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/Java NIO 系列教程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java NIO 系列教程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/27/详解 Filter 过滤器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">详解 Filter 过滤器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -606,12 +641,30 @@ var _hmt = _hmt || [];
 
 
   
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <div class="duoshuo"></div>
   
 
+
+
+  <section id="comments">
+<!--高速版，加载速度快，使用前需测试页面的兼容性-->
+<div id="SOHUCS" sid="JVM性能调优监控工具jps、jstack、jmap、jhat、jstat等使用详解"  style="padding: 0px 30px 0px 46px;"></div>
+<script>
+  (function(){
+    var appid = 'cysWCg9Ij',
+    conf = '7f51baf245f3217589bb3b4ba8d8c691';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>
+  </section>
+  
 
           </div>
         </div>
@@ -640,8 +693,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
