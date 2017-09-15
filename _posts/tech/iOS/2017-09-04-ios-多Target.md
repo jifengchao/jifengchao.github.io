@@ -9,7 +9,7 @@ description:
 >   添加新target (支持cocoapods)
 
 
-##前言
+## 前言
 
 到目前为止，也做了不少的项目了，之前的项目开发时，测试人员经常要求发布不同接口环境的app，当时采用的就是通过手动修改代码，多次以后，经常会把环境弄混淆了，尤其是接口环境还会发生变化，后来发现别人的项目针对这种情况，是采用多Target进行开发的。
 下面去实现下。
@@ -18,7 +18,7 @@ description:
 
 1.1首先直接在现有target下copy出来一个
 
-![Snip20170904_2.png](http://upload-images.jianshu.io/upload_images/847061-6e0652d618c7538f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://upload-images.jianshu.io/upload_images/847061-6e0652d618c7538f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 1.2修改Target的名称
 
