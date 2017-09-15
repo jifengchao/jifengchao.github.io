@@ -22,7 +22,7 @@ title: 戴超的技术博客                             #自定义常量
 
 # avatar头像及Favicon
 avatar: https://avatars3.githubusercontent.com/u/12393581?v=4&u=36096dcb82679ee5e70adb6c581473415af785ef&s=400
-#favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+favicon: https://jifengchao.github.io/favicon.ico
 
 locals:                                     #自定义常量
   tags: 标签
