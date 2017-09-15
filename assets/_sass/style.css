@@ -569,6 +569,13 @@ iframe {
   #icon-twitter:before {
     content: "\e805"; }
 
+#icon-jianshu {
+  margin-left: -90px; }
+  #icon-jianshu:hover {
+    color: #e8705e; }
+  #icon-jianshu:before {
+    content: "\e805"; }
+
 #icon-cc {
   margin-left: -20px; }
   #icon-cc:hover {
