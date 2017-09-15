@@ -10,6 +10,7 @@ description:
 
 
 ##前言
+
 到目前为止，也做了不少的项目了，之前的项目开发时，测试人员经常要求发布不同接口环境的app，当时采用的就是通过手动修改代码，多次以后，经常会把环境弄混淆了，尤其是接口环境还会发生变化，后来发现别人的项目针对这种情况，是采用多Target进行开发的。
 下面去实现下。
 
@@ -47,12 +48,12 @@ description:
 #ifdef PROD
 
 /** 接口域名、IP地址*/
-NSString * const kHttpUrl = @"http://116.62.25.57"; // 正式服务器
+NSString * const kHttpUrl = @""; // 正式服务器
 
 #elif UAT
 
 /** 接口域名、IP地址*/
-NSString * const kHttpUrl = @"http://123.206.191.125"; // 测试服务器
+NSString * const kHttpUrl = @""; // 测试服务器
 
 #else
 
@@ -63,7 +64,7 @@ NSString * const kHttpUrl = @"http://123.206.191.125"; // 测试服务器
 
 2.1 配置Podfile文件格式
 
-![Snip20170904_8.png](http://upload-images.jianshu.io/upload_images/847061-76aada1c2250d6a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://upload-images.jianshu.io/upload_images/847061-76aada1c2250d6a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ```
 
@@ -88,7 +89,7 @@ end
 
 > 注意事项
 
-如果项目是使用cocoapods管理的，先pod install后，在执行上面的操作
+如果项目是使用cocoapods管理的，先pod install后，再执行上面的操作
 
 > 弊端
 
