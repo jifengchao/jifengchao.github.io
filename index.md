@@ -32,6 +32,6 @@ title: Welcome
 ## 最后
 ---
 
-这个博客是借鉴刘彦玮[]大牛的博客搭建的，如果你也想拥有一个一样的Blog，可以见刘彦玮大牛的教程[在Github上搭建Jekyll博客和创建主题](http://liuyanwei.jumppo.com/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html)
+这个博客是借鉴[刘彦玮](http://liuyanwei.jumppo.com)大牛的博客搭建的，如果你也想拥有一个一样的Blog，可以见刘彦玮大牛的教程[在Github上搭建Jekyll博客和创建主题](http://liuyanwei.jumppo.com/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html)
 
 如果有问题可以直接评论,或是给我发邮件。除此之外可以通过RRS订阅blog的更新，点击左下角两个图标即可。如果觉得对你有所帮助，就给我点个赞[github上follow](https://github.com/jifengchao)。谢谢大家的支持。
