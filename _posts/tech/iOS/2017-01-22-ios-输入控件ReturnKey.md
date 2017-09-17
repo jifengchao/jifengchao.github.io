@@ -2,7 +2,7 @@
 layout: post
 title: 设置UITextField/UISearchBar键盘上return key不可点击
 category: iOS
-tags: iOS,Target,cocoapods
+tags: iOS,控件
 description:
 ---
 
