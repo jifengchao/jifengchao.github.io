@@ -28,10 +28,12 @@ searchBar.enablesReturnKeyAutomatically = NO; //这里设置为无文字,还可�
 ```
 
 同样的，我们也可以去设置`UITextField`在无文字的时候按钮不可以点击:
+
 ```
 UITextField *textField = [[UITextField alloc] initWithFrame:CGRectZero];  
 textField.returnKeyType = UIReturnKeySearch; //设置按键类型  
 textField.enablesReturnKeyAutomatically = YES; //这里设置为无文字就灰色不可点  
+```
 
 
 ## 最后
