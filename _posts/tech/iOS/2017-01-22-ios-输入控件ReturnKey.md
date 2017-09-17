@@ -26,6 +26,7 @@ UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
 searchBar.returnKeyType = UIReturnKeySearch; // 设置按键类型
 searchBar.enablesReturnKeyAutomatically = NO; //这里设置为无文字,还可以点击
 ```
+
 同样的，我们也可以去设置`UITextField`在无文字的时候按钮不可以点击:
 ```
 UITextField *textField = [[UITextField alloc] initWithFrame:CGRectZero];  
