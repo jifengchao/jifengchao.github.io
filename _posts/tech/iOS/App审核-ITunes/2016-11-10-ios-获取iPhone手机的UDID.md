@@ -21,7 +21,7 @@ UDID 是一种 iOS 设备的特殊识别码。除序号之外，每台 iOS 装�
 -   方式2：
     - 在iOS设备的Safari浏览器中[打开](https://fir.im/udid): https://fir.im/udid
 
-![]({{site.url}}/assets/postImages/ios/udid01.png)
+![]({{site.url}}/assets/postImages/ios/udid02.png)
 
 
 ## 最后
