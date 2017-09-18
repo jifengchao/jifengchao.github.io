@@ -67,9 +67,8 @@ description:
 ![]({{site.url}}/assets/postImages/ios/pushset11.png)
 
 注意:
-```
 从 iOS 9.2开始，Apple Developer 上生成的生产环境推送证书，名称为 Apple Push Services: XXX, 之前生成的生产环境推送证书名称为 Apple Production IOS Push Services: XXX。 
-```
+
 
 此时，您可以在 Push Notification 下方看见目前每个环境对应的推送证书。
 
