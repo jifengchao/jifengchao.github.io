@@ -1,5 +1,6 @@
 ---
 layout: post
+commentid: ios-target-cocoapods
 title: 添加新target (支持cocoapods)
 category: iOS
 tags: iOS,Target,cocoapods

@@ -1,5 +1,6 @@
 ---
 layout: post
+commentid: ios-UISearchBar-ReturnKey
 title: 设置UISearchBar键盘上return key可点击
 category: iOS
 tags: iOS,控件

@@ -1,5 +1,6 @@
 ---
 layout: post
+commentid: ios-push-certificate
 title: 创建App IDs和推送证书
 category: iOS
 tags: iOS,推送证书

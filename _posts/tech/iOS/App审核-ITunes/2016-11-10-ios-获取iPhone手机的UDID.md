@@ -1,5 +1,6 @@
 ---
 layout: post
+commentid: itunes-phone-udid
 title: 获取iPhone手机的UDID
 category: iOS
 tags: iOS,UDID

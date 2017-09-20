@@ -1,5 +1,6 @@
 ---
 layout: post
+commentid: daichao-welcome
 title: Welcome
 ---
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+commentid: test-
 title: 函数节流与函数防抖
 category: iOS
 tags: iOS,实时模糊搜索
