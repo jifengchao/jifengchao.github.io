@@ -1,4 +1,14 @@
-<div id="disqus_thread" name="{{ site.disqus.shortname }}">
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
-</div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk@latest/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'e46f6dec7c07145c652c',
+    clientSecret: 'd1a0b627f9b76d21bd3080d1777d0aa0ad55dd83',
+    repo: 'gitalk',
+    owner: 'gitalk',
+    admin: ['booxood', 'mamboer'],
+    id: 'Demo',
+    distractionFreeMode: true
+  });
+  gitalk.render('gitalk-container');
+</script>
