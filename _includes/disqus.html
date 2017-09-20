@@ -1,15 +1,28 @@
-<div id="container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: 'location.href', // 可选。默认为 location.href
-  owner: 'jifengchao',
-  repo: 'jifengchao.github.io',
-  oauth: {
-    client_id: '6a72bc4c1d5678eaf633',
-    client_secret: 'e34e7d9a51bb95c9b86a97fd7076741a1490f195',
-  },
-})
-gitment.render('container')
-</script>
+<div class="comments" id="comments">
+  
+    <div id="gitmentContainer" style="margin-bottom: -19px;"></div>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <style>
+      .gitment-container a {
+        border: none;
+      }
+      .comments {
+        margin: 60px 0 0;
+      }
+    </style>
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: 'iOS-OpenCV-config',
+        title: 'iOS 下 OpenCV 的配置',
+        owner: 'jifengchao',
+        repo: 'jifengchao.github.io',
+        oauth: {
+          client_id: '6a72bc4c1d5678eaf633',
+          client_secret: 'e34e7d9a51bb95c9b86a97fd7076741a1490f195',
+        },
+      })
+      gitment.render('gitmentContainer')
+    </script>
+  
+</div>
