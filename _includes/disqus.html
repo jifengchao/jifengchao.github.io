@@ -1,16 +1,4 @@
-<div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-  var gitment = new Gitment({
-    id: '{{page.commentid}}',
-    title: '{{page.title}}',
-    owner: 'jifengchao',
-    repo: 'jifengchao.github.io',
-    oauth: {
-      client_id: '6a72bc4c1d5678eaf633',
-      client_secret: 'e34e7d9a51bb95c9b86a97fd7076741a1490f195',
-    },
-  })
-  gitment.render('gitmentContainer')
-</script>
+<div id="disqus_thread" name="{{ site.disqus.shortname }}">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
