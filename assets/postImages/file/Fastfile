@@ -1,0 +1,69 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+  desc "以 development 方式打包"
+  lane :dev do
+  	puts "以 development 方式打包"
+    gym(
+      # 指定打包所使用的输出方式 (可选: app-store, package, ad-hoc, enterprise, development)
+      export_method: "development",
+      # 指定项目的 scheme 名称
+      scheme: "QiQueQiaoDev",
+      # 指定输出的文件夹地址
+      # output_directory: "./archive/dev/" + Time.new.strftime("%Y-%m-%d %H-%M-%S"),
+      # 指定打包方式 (可选: Release, Debug)
+      configuration: "Release"
+    )
+    firim(
+    	firim_api_token: "xxxxxxxxxxxx",
+    	app_changelog: "测试环境"
+    )
+  end
+
+  desc "以 ad-hoc 方式打包"
+  lane :adhoc do
+  	puts "以 ad-hoc 方式打包"
+    gym(
+      # 指定打包所使用的输出方式 (可选: app-store, package, ad-hoc, enterprise, development)
+      export_method: "ad-hoc",
+      # 指定项目的 scheme 名称
+      scheme: "QiQueQiao",
+      # 指定输出的文件夹地址
+      # output_directory: "./archive/adhoc/" + Time.new.strftime("%Y-%m-%d %H-%M-%S"),
+      # 指定打包方式 (可选: Release, Debug)
+      configuration: "Release"
+    )
+    firim(
+    	firim_api_token: "xxxxxxxxxxxx",
+    	app_changelog: "正式环境"
+    )
+  end
+
+  lane :pgyerDev do
+  	puts "以 development 方式打包"
+    gym(
+      # 指定打包所使用的输出方式 (可选: app-store, package, ad-hoc, enterprise, development)
+      export_method: "development",
+      # 指定项目的 scheme 名称
+      scheme: "QiQueQiaoDev",
+      # 指定输出的文件夹地址
+      # output_directory: "./archive/dev/" + Time.new.strftime("%Y-%m-%d %H-%M-%S"),
+      # 指定打包方式 (可选: Release, Debug)
+      configuration: "Release"
+    )
+    pgyer(api_key: "xxxxxxxxxxxx", user_key: "xxxxxxxxxxxx")
+  end
+
+end
