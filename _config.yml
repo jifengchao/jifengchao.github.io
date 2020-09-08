@@ -1,6 +1,6 @@
 # Site settings
 title: 戴超的技术博客
-email: dai965524749@gmail.com
+email: daichaodev@gmail.com
 description: > #戴超的技术博客
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://jifengchao.github.io/" # the base hostname & protocol for your site
@@ -14,7 +14,7 @@ permalink: /:year/:month/:day/:title.html   #博文的固定链接
 paginate: 10                                #分页时每页博文数量
 author:                                     #自定义常亮
   name: 戴超
-  email: dai965524749@gmail.com
+  email: daichaodev@gmail.com
   link: https://jifengchao.github.io/
   weibo: http://weibo.com/p/1005052834143574
   github: https://github.com/jifengchao
