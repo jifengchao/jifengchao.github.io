@@ -98,7 +98,7 @@ Q：为什么我们的main函数能保持一直运行状态而不退出呢？
 	- kCFRunLoopBeforeTimers：通知观察者，RunLoop要对Timers相关事件进行处理了
 	- kCFRunLoopBeforeSources：通知观察者，要处理Sources相关事件了
 	- `kCFRunLoopBeforeWaiting`：通知对应观察者，RunLoop即将要进入休眠状态
-	- `kCFRunLoopAfterWaiting`：通知对应观察者，用户态切换到内核态不久
+	- `kCFRunLoopAfterWaiting`：通知对应观察者，刚从休眠中唤醒
 	- kCFRunLoopExit：代表RunLoop退出的通知
 	- kCFRunloopAllActivities：观察所有状态改变
 

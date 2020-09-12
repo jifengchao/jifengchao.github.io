@@ -129,10 +129,25 @@ Runtime又简称为运行时。其提供了对Objective-C语言动态属性的�
 
 ### 消息传递
 
-我们先看下这段代买的结果如何
+我们先看下这段代码的结果如何
 
 ```
+@implementation Son
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        NSLog(@"class name01 = %@", NSStringFromClass([self class]));
+        NSLog(@"class name02 = %@", NSStringFromClass([super class]));
+    }
+    return self;
+}
+@end
+
+答案：
+class name01 = Son
+class name02 = Son
 ```
 
 方法调用会编译器转为objc_msgSend、objc_msgSendSuper
