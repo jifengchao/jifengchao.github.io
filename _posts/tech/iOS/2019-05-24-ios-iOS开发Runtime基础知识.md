@@ -210,8 +210,6 @@ struct objc_super {
 
 - Method Swizzling是一种改变一个selector的实际实现的技术。通过这一技术，我们可以在运行时通过修改类的分发表中selector对应的函数，来修改方法的实现。
 
-![]({{site.url}}/assets/postImages/ios/runtime/runtime11.jpg)
-
 - 举例，代码如下：
 
 ```
